@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Testimonials from "../../components/Testimonials";
 import bannerImg from "../../assets/images/about-us-banner.webp";
+import { teamMembers, restaurantImages } from "../../assets/imageImports";
 
 const About = () => {
   return (
@@ -255,25 +256,25 @@ const About = () => {
                     name: "Nilesh Suryavanshi",
                     role: "CMD & Founder",
                     bio: "With over 30 years of experience, Nilesh brings traditional family recipes and innovative techniques to create our signature dishes.",
-                    image: "/src/assets/images/team/CMD & Founder - Nilesh Suryavanshi.jpg",
+                    image: teamMembers.nilesh,
                   },
                   {
                     name: "Rahul Kumar",
                     role: "Senior Purchase Executive",
                     bio: "A graduate of the Culinary Institute of India, Rahul specializes in sourcing the finest ingredients and maintaining quality standards.",
-                    image: "/src/assets/images/team/Senior Purchase Executive - Rahul Kumar.jpg",
+                    image: teamMembers.rahul,
                   },
                   {
                     name: "Trayambakeshwar Shukla",
                     role: "Senior Restaurant Manager",
                     bio: "Specializing in both traditional Indian sweets and fusion desserts, Trayambakeshwar brings artistry and innovation to our dessert menu.",
-                    image: "/src/assets/images/team/Trayambakeshwar Shukla - Senior Restaurant Manager.jpg",
+                    image: teamMembers.trayambakeshwar,
                   },
                   {
                     name: "Gajendra Shah",
                     role: "Unit Chef",
                     bio: "With a background in hospitality management, Gajendra ensures every guest receives an exceptional dining experience.",
-                    image: "/src/assets/images/team/Unit Chef-  Gajendra Shah.jpg",
+                    image: teamMembers.gajendra,
                   },
                 ].map((member, index) => (
                   <div
@@ -317,35 +318,35 @@ const About = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="overflow-hidden rounded-lg shadow-md col-span-1 sm:col-span-2 h-80">
                   <img
-                    src="/src/assets/images/about-us/Our Restaurant Image 1 - About Us.jpg"
+                    src={restaurantImages[0]}
                     alt="Main dining area"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg shadow-md h-80">
                   <img
-                    src="/src/assets/images/about-us/Our Restaurant Image 2- About Us.jpg"
+                    src={restaurantImages[1]}
                     alt="Private dining room"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg shadow-md h-80">
                   <img
-                    src="/src/assets/images/about-us/Our Restaurant Image 3- About Us.jpg"
+                    src={restaurantImages[2]}
                     alt="Our kitchen"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg shadow-md h-80">
                   <img
-                    src="/src/assets/images/about-us/Our Restaurant Image 4- About US.jpg"
+                    src={restaurantImages[3]}
                     alt="Outdoor seating"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg shadow-md col-span-1 h-80">
                   <img
-                    src="/src/assets/images/about-us/Our Restaurant Image 5- About Us.jpg"
+                    src={restaurantImages[4]}
                     alt="Signature thali presentation"
                     className="w-full h-full object-cover"
                   />

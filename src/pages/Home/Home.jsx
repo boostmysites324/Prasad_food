@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Testimonials from "../../components/Testimonials";
+import { signatureDishes, galleryImages as importedGalleryImages, homePageImage } from "../../assets/imageImports";
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url('/src/assets/images/Home Page Image 1.jpg')`,
+                backgroundImage: `url('${homePageImage}')`,
                 filter: "brightness(0.7)",
               }}
             ></div>
@@ -58,35 +59,35 @@ const Home = () => {
                     name: "Cheese Corn Ball",
                     description:
                       "Crispy corn and cheese balls served with tangy sauce",
-                    image: "/src/assets/images/signature-dishes/Cheese Corn Ball.jpg",
+                    image: signatureDishes.cheeseCornBall,
                   },
                   {
                     name: "Kaju Masala",
                     description:
                       "Rich cashew curry with aromatic spices and cream",
-                    image: "/src/assets/images/signature-dishes/Kaju Masala.jpg",
+                    image: signatureDishes.kajuMasala,
                   },
                   {
                     name: "Mix Grilled Finger",
                     description:
                       "Assorted grilled vegetables with special marinade",
-                    image: "/src/assets/images/signature-dishes/Mix Grilled Finger.jpg",
+                    image: signatureDishes.mixGrilledFinger,
                   },
                   {
                     name: "Sizzling Brownie",
                     description: "Hot chocolate brownie with ice cream and chocolate sauce",
-                    image: "/src/assets/images/signature-dishes/Sizzling Brownie.jpg",
+                    image: signatureDishes.sizzlingBrownie,
                   },
                   {
                     name: "Strawberry Pina Colada",
                     description: "Refreshing strawberry and coconut mocktail",
-                    image: "/src/assets/images/signature-dishes/Strawberry Pina Colada.jpg",
+                    image: signatureDishes.strawberryPinaColada,
                   },
                   {
                     name: "Veg Biryani",
                     description:
                       "Fragrant basmati rice with mixed vegetables and aromatic spices",
-                    image: "/src/assets/images/signature-dishes/Veg Biryani.jpg",
+                    image: signatureDishes.vegBiryani,
                   },
                 ].map((dish, index) => (
                   <div
@@ -418,12 +419,12 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              "/src/assets/images/gallery/ambiance/DSC09255-HDR.jpg",
-              "/src/assets/images/gallery/food/Paneer Angara.jpg",
-              "/src/assets/images/gallery/food/Veg Biryani.jpg",
-              "/src/assets/images/gallery/ambiance/DSC01522-HDR.jpg",
-              "/src/assets/images/gallery/food/Kaju Masala.jpg",
-              "/src/assets/images/gallery/food/Sizzling Brownie.jpg",
+              importedGalleryImages.ambiance[0],
+              importedGalleryImages.food.paneerAngara,
+              importedGalleryImages.food.vegBiryani,
+              importedGalleryImages.ambiance[1],
+              importedGalleryImages.food.kajuMasala,
+              importedGalleryImages.food.sizzlingBrownie,
             ].map((image, index) => (
               <div
                 key={index}

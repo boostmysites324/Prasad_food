@@ -1,4 +1,6 @@
 import React, { useState, useRef } from "react";
+import { galleryImages as importedImages } from "../../assets/imageImports";
+
 const Gallery = () => {
   // Gallery state management
   const [activeCategory, setActiveCategory] = useState("all");
@@ -12,7 +14,7 @@ const Gallery = () => {
     // Ambiance Images
     {
       id: 1,
-      src: "/src/assets/images/gallery/ambiance/DSC09255-HDR.jpg",
+      src: importedImages.ambiance[0],
       title: "Elegant Dining Hall - Virar",
       category: "ambiance",
       date: "2025-05-15",
@@ -20,7 +22,7 @@ const Gallery = () => {
     },
     {
       id: 2,
-      src: "/src/assets/images/gallery/ambiance/DSC01522-HDR.jpg",
+      src: importedImages.ambiance[1],
       title: "Luxurious Banquet Hall - Badlapur",
       category: "ambiance",
       date: "2025-05-20",
@@ -28,7 +30,7 @@ const Gallery = () => {
     },
     {
       id: 3,
-      src: "/src/assets/images/gallery/ambiance/DSC01786-HDR.jpg",
+      src: importedImages.ambiance[2],
       title: "Modern Interior - Kalyan West",
       category: "ambiance",
       date: "2025-05-25",
@@ -36,7 +38,7 @@ const Gallery = () => {
     },
     {
       id: 4,
-      src: "/src/assets/images/gallery/ambiance/DSC01870-HDR.jpg",
+      src: importedImages.ambiance[3],
       title: "Sophisticated Dining - Kalyan East",
       category: "ambiance",
       date: "2025-05-30",
@@ -44,7 +46,7 @@ const Gallery = () => {
     },
     {
       id: 5,
-      src: "/src/assets/images/gallery/ambiance/DSC02011-HDR.jpg",
+      src: importedImages.ambiance[4],
       title: "Premium Banquet - Dombivali",
       category: "ambiance",
       date: "2025-06-05",
@@ -52,7 +54,7 @@ const Gallery = () => {
     },
     {
       id: 6,
-      src: "/src/assets/images/gallery/ambiance/DSC03421-HDR.jpg",
+      src: importedImages.ambiance[5],
       title: "Upscale Dining - Thane",
       category: "ambiance",
       date: "2025-06-10",
@@ -60,7 +62,7 @@ const Gallery = () => {
     },
     {
       id: 7,
-      src: "/src/assets/images/gallery/ambiance/DSC03559-HDR.jpg",
+      src: importedImages.ambiance[6],
       title: "Elegant Interior - Mulund",
       category: "ambiance",
       date: "2025-06-15",
@@ -68,7 +70,7 @@ const Gallery = () => {
     },
     {
       id: 8,
-      src: "/src/assets/images/gallery/ambiance/DSC03803-HDR.jpg",
+      src: importedImages.ambiance[7],
       title: "Luxury Banquet - Powai",
       category: "ambiance",
       date: "2025-06-20",
@@ -77,7 +79,7 @@ const Gallery = () => {
     // Food Images
     {
       id: 9,
-      src: "/src/assets/images/gallery/food/Paneer Angara.jpg",
+      src: importedImages.food.paneerAngara,
       title: "Paneer Angara",
       category: "food",
       date: "2025-06-01",
@@ -85,7 +87,7 @@ const Gallery = () => {
     },
     {
       id: 10,
-      src: "/src/assets/images/gallery/food/Kaju Masala.jpg",
+      src: importedImages.food.kajuMasala,
       title: "Kaju Masala",
       category: "food",
       date: "2025-06-02",
@@ -93,7 +95,7 @@ const Gallery = () => {
     },
     {
       id: 11,
-      src: "/src/assets/images/gallery/food/Veg Biryani.jpg",
+      src: importedImages.food.vegBiryani,
       title: "Vegetable Biryani",
       category: "food",
       date: "2025-06-03",
@@ -101,7 +103,7 @@ const Gallery = () => {
     },
     {
       id: 12,
-      src: "/src/assets/images/gallery/food/Sizzling Brownie.jpg",
+      src: importedImages.food.sizzlingBrownie,
       title: "Sizzling Brownie",
       category: "food",
       date: "2025-06-04",
@@ -109,7 +111,7 @@ const Gallery = () => {
     },
     {
       id: 13,
-      src: "/src/assets/images/gallery/food/Strawberry Pina Colada.jpg",
+      src: importedImages.food.strawberryPinaColada,
       title: "Strawberry Pina Colada",
       category: "food",
       date: "2025-06-05",
@@ -117,7 +119,7 @@ const Gallery = () => {
     },
     {
       id: 14,
-      src: "/src/assets/images/gallery/food/Cheese Corn Ball.jpg",
+      src: importedImages.food.cheeseCornBall,
       title: "Cheese Corn Ball",
       category: "food",
       date: "2025-06-06",
@@ -125,7 +127,7 @@ const Gallery = () => {
     },
     {
       id: 15,
-      src: "/src/assets/images/gallery/food/Bbq Pizza.jpg",
+      src: importedImages.food.bbqPizza,
       title: "BBQ Pizza",
       category: "food",
       date: "2025-06-07",
@@ -133,7 +135,7 @@ const Gallery = () => {
     },
     {
       id: 16,
-      src: "/src/assets/images/gallery/food/Biscoff Cheese cake.jpg",
+      src: importedImages.food.biscoffCheeseCake,
       title: "Biscoff Cheese Cake",
       category: "food",
       date: "2025-06-08",
@@ -142,7 +144,7 @@ const Gallery = () => {
     // Events Images
     {
       id: 17,
-      src: "/src/assets/images/gallery/events/Events 1.jpg",
+      src: importedImages.events[0],
       title: "Corporate Event",
       category: "events",
       date: "2025-04-20",
@@ -150,7 +152,7 @@ const Gallery = () => {
     },
     {
       id: 18,
-      src: "/src/assets/images/gallery/events/Events 2.jpg",
+      src: importedImages.events[1],
       title: "Wedding Celebration",
       category: "events",
       date: "2025-04-25",
@@ -158,7 +160,7 @@ const Gallery = () => {
     },
     {
       id: 19,
-      src: "/src/assets/images/gallery/events/Events 3.jpg",
+      src: importedImages.events[2],
       title: "Festival Special",
       category: "events",
       date: "2025-04-30",
@@ -166,7 +168,7 @@ const Gallery = () => {
     },
     {
       id: 20,
-      src: "/src/assets/images/gallery/events/Events 4.jpg",
+      src: importedImages.events[3],
       title: "Private Party",
       category: "events",
       date: "2025-05-05",
@@ -174,7 +176,7 @@ const Gallery = () => {
     },
     {
       id: 21,
-      src: "/src/assets/images/gallery/events/Events 5.jpg",
+      src: importedImages.events[4],
       title: "Cultural Event",
       category: "events",
       date: "2025-05-10",
