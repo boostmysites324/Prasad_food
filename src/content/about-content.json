@@ -1,0 +1,29 @@
+{
+  "ourStory": {
+    "title": "Our Story",
+    "content": "Add your restaurant's story here..."
+  },
+  "ourMission": {
+    "title": "Our Mission", 
+    "content": "Add your mission statement here..."
+  },
+  "ourValues": {
+    "title": "Our Values",
+    "content": "Add your core values here..."
+  },
+  "ourJourney": {
+    "title": "Our Journey",
+    "content": "Add details about your restaurant's journey here..."
+  },
+  "whatMakesUsSpecial": {
+    "title": "What Makes Us Special",
+    "content": "Add what makes your restaurant unique here..."
+  },
+  "ourCommitment": {
+    "title": "Our Commitment",
+    "content": "Add your commitment to customers here..."
+  }
+}
+
+
+
