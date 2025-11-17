@@ -346,7 +346,7 @@ const About = () => {
                 </div>
                 <div className="overflow-hidden rounded-lg shadow-md col-span-1 h-80">
                   <img
-                    src={restaurantImages[4]}
+                    src={restaurantImages[5]}
                     alt="Signature thali presentation"
                     className="w-full h-full object-cover"
                   />

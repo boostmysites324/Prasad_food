@@ -45,6 +45,7 @@ import restaurantImg2 from './images/about-us/Our Restaurant Image 2- About Us.j
 import restaurantImg3 from './images/about-us/Our Restaurant Image 3- About Us.jpg';
 import restaurantImg4 from './images/about-us/Our Restaurant Image 4- About US.jpg';
 import restaurantImg5 from './images/about-us/Our Restaurant Image 5- About Us.jpg';
+import restaurantImg6 from './images/about-us/Our-restaurent-img-6.jpeg';
 
 // Home Page
 import homePageImg1 from './images/Home Page Image 1.jpg';
@@ -88,7 +89,8 @@ export const restaurantImages = [
   restaurantImg2,
   restaurantImg3,
   restaurantImg4,
-  restaurantImg5
+  restaurantImg5,
+  restaurantImg6
 ];
 
 export const homePageImage = homePageImg1;

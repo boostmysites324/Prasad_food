@@ -400,7 +400,7 @@ const Gallery = () => {
             </div>
             
             <div className="mt-4 flex flex-wrap gap-2">
-              {allTags.map((tag) => (
+              {/* {allTags.map((tag) => (
                 <button
                   key={tag}
                   onClick={() => setSearchQuery(tag)}
@@ -408,7 +408,7 @@ const Gallery = () => {
                 >
                   {tag}
                 </button>
-              ))}
+              ))} */}
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}

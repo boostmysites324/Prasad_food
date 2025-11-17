@@ -73,15 +73,16 @@ function App() {
             </Suspense>
           }
         />
-        <Route
-          path="admin"
-          element={
-            <Suspense fallback={<LoadingSpinner />}>
-              <Admin />
-            </Suspense>
-          }
-        />
       </Route>
+      {/* Admin route outside Layout to exclude Header and Footer */}
+      <Route
+        path="admin"
+        element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <Admin />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 }

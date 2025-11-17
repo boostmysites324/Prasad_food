@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   LineChart,
   Line,
@@ -17,6 +16,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+
+import { supabase, isSupabaseReady } from "../../lib/supabaseClient";
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -46,6 +47,10 @@ const Admin = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("all");
   const [sortBy, setSortBy] = useState("date");
+  const [bookingSyncing, setBookingSyncing] = useState(false);
+  const [reservationSyncing, setReservationSyncing] = useState(false);
+  const [bookingError, setBookingError] = useState("");
+  const [reservationError, setReservationError] = useState("");
 
   // Mock data for bookings
   const mockBookings = [
@@ -368,6 +373,88 @@ const Admin = () => {
     }
   ];
 
+  const mapServiceBookingRow = (row) => ({
+    id: row.id,
+    customerName: row.customer_name,
+    email: row.email,
+    phone: row.phone,
+    service: row.service,
+    eventDate: row.event_date,
+    eventType: row.event_type,
+    guests: row.guests,
+    status: row.status,
+    message: row.message,
+    createdAt: row.created_at
+  });
+
+  const mapReservationRow = (row) => ({
+    id: row.id,
+    customerName: row.name,
+    email: row.email,
+    phone: row.phone,
+    outlet: row.outlet,
+    date: row.date,
+    time: row.time,
+    guests: row.guests,
+    specialRequests: row.special_requests,
+    status: row.status,
+    createdAt: row.created_at
+  });
+
+  const fetchServiceBookings = useCallback(async () => {
+    if (!isSupabaseReady) {
+      console.warn("Supabase is not configured. Using mock bookings data.");
+      return;
+    }
+
+    setBookingSyncing(true);
+    setBookingError("");
+
+    try {
+      const { data, error } = await supabase
+        .from("service_bookings")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      if (data) {
+        setBookings(data.map(mapServiceBookingRow));
+      }
+    } catch (err) {
+      console.error("Failed to fetch service bookings:", err);
+      setBookingError(err.message || "Unable to load service bookings.");
+    } finally {
+      setBookingSyncing(false);
+    }
+  }, [isSupabaseReady]);
+
+  const fetchTableReservations = useCallback(async () => {
+    if (!isSupabaseReady) {
+      console.warn("Supabase is not configured. Using mock reservation data.");
+      return;
+    }
+
+    setReservationSyncing(true);
+    setReservationError("");
+
+    try {
+      const { data, error } = await supabase
+        .from("table_reservations")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      if (data) {
+        setReservations(data.map(mapReservationRow));
+      }
+    } catch (err) {
+      console.error("Failed to fetch reservations:", err);
+      setReservationError(err.message || "Unable to load reservations.");
+    } finally {
+      setReservationSyncing(false);
+    }
+  }, [isSupabaseReady]);
+
   useEffect(() => {
     setBookings(mockBookings);
     setReservations(mockReservations);
@@ -432,6 +519,11 @@ const Admin = () => {
       ]
     });
   }, []);
+
+  useEffect(() => {
+    fetchServiceBookings();
+    fetchTableReservations();
+  }, [fetchServiceBookings, fetchTableReservations]);
 
   // Authentication
   const handleLogin = (e) => {
@@ -526,15 +618,45 @@ const Admin = () => {
   }, []);
 
   // Booking management
-  const updateBookingStatus = (bookingId, newStatus) => {
-    setBookings(bookings.map(booking => 
-      booking.id === bookingId ? { ...booking, status: newStatus } : booking
-    ));
+  const updateBookingStatus = async (bookingId, newStatus) => {
+    setBookings(prev =>
+      prev.map(booking =>
+        booking.id === bookingId ? { ...booking, status: newStatus } : booking
+      )
+    );
+
+    if (!isSupabaseReady) return;
+
+    const { error } = await supabase
+      .from("service_bookings")
+      .update({ status: newStatus })
+      .eq("id", bookingId);
+
+    if (error) {
+      console.error("Failed to update booking status:", error);
+      alert("Failed to update booking status. Please try again.");
+      fetchServiceBookings();
+    }
   };
 
-  const deleteBooking = (bookingId) => {
-    if (window.confirm("Are you sure you want to delete this booking?")) {
-      setBookings(bookings.filter(booking => booking.id !== bookingId));
+  const deleteBooking = async (bookingId) => {
+    if (!window.confirm("Are you sure you want to delete this booking?")) {
+      return;
+    }
+
+    setBookings(prev => prev.filter(booking => booking.id !== bookingId));
+
+    if (!isSupabaseReady) return;
+
+    const { error } = await supabase
+      .from("service_bookings")
+      .delete()
+      .eq("id", bookingId);
+
+    if (error) {
+      console.error("Failed to delete booking:", error);
+      alert("Failed to delete booking. Please try again.");
+      fetchServiceBookings();
     }
   };
 
@@ -593,6 +715,48 @@ const Admin = () => {
   const deleteStaff = (staffId) => {
     if (window.confirm("Are you sure you want to delete this staff member?")) {
       setStaff(staff.filter(member => member.id !== staffId));
+    }
+  };
+
+  const updateReservationStatus = async (reservationId, newStatus) => {
+    setReservations(prev =>
+      prev.map(reservation =>
+        reservation.id === reservationId ? { ...reservation, status: newStatus } : reservation
+      )
+    );
+
+    if (!isSupabaseReady) return;
+
+    const { error } = await supabase
+      .from("table_reservations")
+      .update({ status: newStatus })
+      .eq("id", reservationId);
+
+    if (error) {
+      console.error("Failed to update reservation status:", error);
+      alert("Failed to update reservation status. Please try again.");
+      fetchTableReservations();
+    }
+  };
+
+  const deleteReservation = async (reservationId) => {
+    if (!window.confirm("Are you sure you want to delete this reservation?")) {
+      return;
+    }
+
+    setReservations(prev => prev.filter(reservation => reservation.id !== reservationId));
+
+    if (!isSupabaseReady) return;
+
+    const { error } = await supabase
+      .from("table_reservations")
+      .delete()
+      .eq("id", reservationId);
+
+    if (error) {
+      console.error("Failed to delete reservation:", error);
+      alert("Failed to delete reservation. Please try again.");
+      fetchTableReservations();
     }
   };
 
@@ -982,6 +1146,12 @@ const Admin = () => {
           {activeTab === "bookings" && (
             <div>
               <h2 className="text-3xl font-serif text-[#800000] mb-8">Service Bookings Management</h2>
+
+              {bookingError && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-6">
+                  {bookingError}
+                </div>
+              )}
               
               {/* Search and Filter Controls */}
               <div className="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -1027,10 +1197,13 @@ const Admin = () => {
                         setSearchTerm("");
                         setFilterStatus("all");
                         setSortBy("date");
+                        fetchServiceBookings();
                       }}
-                      className="w-full bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-md transition-colors"
+                      className="w-full bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-md transition-colors disabled:opacity-70"
+                      disabled={bookingSyncing}
                     >
-                      <i className="fas fa-refresh mr-2"></i>Reset
+                      <i className={`fas ${bookingSyncing ? "fa-spinner fa-spin" : "fa-refresh"} mr-2`}></i>
+                      {bookingSyncing ? "Syncing..." : "Reset & Sync"}
                     </button>
                   </div>
                 </div>
@@ -1137,16 +1310,20 @@ const Admin = () => {
               <div className="flex justify-between items-center mb-8">
                 <h2 className="text-3xl font-serif text-[#800000]">Table Reservations</h2>
                 <button
-                  onClick={() => {
-                    const storedSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
-                    const reservationSubmissions = storedSubmissions.filter(sub => sub.type === 'reservation');
-                    setReservations([...mockReservations, ...reservationSubmissions]);
-                  }}
-                  className="bg-[#FF9933] hover:bg-[#e88a2a] text-white px-4 py-2 rounded-md font-medium transition-colors"
+                  onClick={fetchTableReservations}
+                  disabled={reservationSyncing}
+                  className="bg-[#FF9933] hover:bg-[#e88a2a] disabled:bg-[#d47520] text-white px-4 py-2 rounded-md font-medium transition-colors"
                 >
-                  <i className="fas fa-sync-alt mr-2"></i>Refresh
+                  <i className={`fas ${reservationSyncing ? "fa-spinner fa-spin" : "fa-sync-alt"} mr-2`}></i>
+                  {reservationSyncing ? "Refreshing..." : "Refresh"}
                 </button>
               </div>
+
+              {reservationError && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-6">
+                  {reservationError}
+                </div>
+              )}
               
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="overflow-x-auto">
@@ -1200,12 +1377,7 @@ const Admin = () => {
                             <td className="py-4 px-6">
                               <select
                                 value={reservation.status}
-                                onChange={(e) => {
-                                  const updatedReservations = reservations.map(r => 
-                                    r.id === reservation.id ? { ...r, status: e.target.value } : r
-                                  );
-                                  setReservations(updatedReservations);
-                                }}
+                                onChange={(e) => updateReservationStatus(reservation.id, e.target.value)}
                                 className={`px-3 py-1 rounded-full text-xs border transition-colors ${
                                   reservation.status === "confirmed" 
                                     ? "bg-green-100 text-green-800 border-green-200" 
@@ -1231,11 +1403,7 @@ const Admin = () => {
                                   <i className="fas fa-eye"></i>
                                 </button>
                                 <button
-                                  onClick={() => {
-                                    if (window.confirm("Are you sure you want to delete this reservation?")) {
-                                      setReservations(reservations.filter(r => r.id !== reservation.id));
-                                    }
-                                  }}
+                                  onClick={() => deleteReservation(reservation.id)}
                                   className="text-red-600 hover:text-red-800 transition-colors"
                                   title="Delete"
                                 >

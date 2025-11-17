@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ownerImage from "../../assets/images/team/owner1.jpeg";
 
 const Franchise = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const Franchise = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const testimonialImages = [ownerImage, ownerImage, ownerImage];
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -338,7 +340,7 @@ const Franchise = () => {
                     <img
                       src={
                         [
-                          "https://readdy.ai/api/search-image?query=Professional%2520portrait%2520of%2520a%2520successful%2520Indian%2520businessman%2520in%2520his%252040s%2520wearing%2520formal%2520attire%2520with%2520a%2520confident%2520smile%2520against%2520a%2520neutral%2520background%2520that%2520conveys%2520professionalism%2520and%2520achievement%2520in%2520the%2520restaurant%2520franchise%2520business&width=300&height=300&seq=2&orientation=squarish",
+                          ownerImage,
                           "https://readdy.ai/api/search-image?query=Professional%2520portrait%2520of%2520a%2520successful%2520Indian%2520businesswoman%2520in%2520her%252030s%2520wearing%2520elegant%2520business%2520attire%2520with%2520a%2520warm%2520confident%2520smile%2520against%2520a%2520neutral%2520background%2520that%2520conveys%2520professionalism%2520and%2520success%2520in%2520the%2520restaurant%2520franchise%2520industry&width=300&height=300&seq=3&orientation=squarish",
                           "https://readdy.ai/api/search-image?query=Professional%2520portrait%2520of%2520a%2520successful%2520middle%2520aged%2520Indian%2520couple%2520in%2520business%2520casual%2520attire%2520with%2520friendly%2520confident%2520expressions%2520against%2520a%2520neutral%2520background%2520that%2520conveys%2520their%2520partnership%2520and%2520success%2520in%2520the%2520restaurant%2520franchise%2520business&width=300&height=300&seq=4&orientation=squarish",
                         ][activeTestimonial]
@@ -696,7 +698,7 @@ const Franchise = () => {
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-start">
+                      {/* <div className="flex items-start">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
                           <i className="fas fa-phone-alt text-white"></i>
                         </div>
@@ -704,7 +706,7 @@ const Franchise = () => {
                           <h4 className="font-medium mb-1">Call Us</h4>
                           <p className="text-white/80">+91 98765 43210</p>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="flex items-start">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
                           <i className="fas fa-map-marker-alt text-white"></i>
@@ -712,8 +714,7 @@ const Franchise = () => {
                         <div>
                           <h4 className="font-medium mb-1">Head Office</h4>
                           <p className="text-white/80">
-                            123 Divine Street, Culinary District, New Delhi,
-                            India 110001
+                          Shop No. G-20, G-21, G-22 Ground Floor, Sarvoday Mall, Kalyan West, 421301
                           </p>
                         </div>
                       </div>

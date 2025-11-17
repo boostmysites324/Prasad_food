@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import BookingForm from "../../components/BookingForm";
+import { supabase, isSupabaseReady } from "../../lib/supabaseClient";
 
 const Contact = () => {
-  const [activeTab, setActiveTab] = useState("reservation");
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const [reservationData, setReservationData] = useState({
+  const initialReservationState = {
     name: "",
     phone: "",
     email: "",
@@ -13,7 +12,14 @@ const Contact = () => {
     time: "",
     guests: 2,
     specialRequests: "",
-  });
+  };
+
+  const [activeTab, setActiveTab] = useState("reservation");
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [reservationSubmitting, setReservationSubmitting] = useState(false);
+  const [reservationError, setReservationError] = useState("");
+  const [lastReservationSnapshot, setLastReservationSnapshot] = useState(null);
+  const [reservationData, setReservationData] = useState(initialReservationState);
 
   const handleReservationChange = (e) => {
     const { name, value } = e.target;
@@ -22,23 +28,45 @@ const Contact = () => {
       [name]: value,
     });
   };
-  const handleReservationSubmit = (e) => {
+  const handleReservationSubmit = async (e) => {
     e.preventDefault();
-    
-    // Store reservation data in localStorage for admin panel
-    const submissionData = {
-      ...reservationData,
-      id: Date.now(),
-      type: "reservation",
-      status: "pending",
-      createdAt: new Date().toISOString().split('T')[0]
-    };
-    
-    const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
-    existingSubmissions.push(submissionData);
-    localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
-    
-    setShowConfirmation(true);
+    setReservationError("");
+
+    if (!isSupabaseReady) {
+      setReservationError("Supabase is not configured. Please try again later.");
+      return;
+    }
+
+    setReservationSubmitting(true);
+
+    try {
+      const payload = {
+        name: reservationData.name.trim(),
+        phone: reservationData.phone.trim(),
+        email: reservationData.email.trim(),
+        outlet: reservationData.outlet,
+        date: reservationData.date,
+        time: reservationData.time,
+        guests: reservationData.guests,
+        special_requests: reservationData.specialRequests.trim(),
+        status: "pending"
+      };
+
+      const { error } = await supabase.from("table_reservations").insert(payload);
+
+      if (error) {
+        throw error;
+      }
+
+      setLastReservationSnapshot({ ...reservationData });
+      setShowConfirmation(true);
+      setReservationData(initialReservationState);
+    } catch (err) {
+      console.error("Failed to submit reservation:", err);
+      setReservationError(err.message || "Unable to submit reservation. Please try again.");
+    } finally {
+      setReservationSubmitting(false);
+    }
   };
   const handleGuestChange = (increment) => {
     setReservationData({
@@ -48,6 +76,8 @@ const Contact = () => {
         : Math.max(reservationData.guests - 1, 1),
     });
   };
+  const modalReservationData = lastReservationSnapshot || reservationData;
+
   return (
     <div className="pb-16 pt-32 bg-[#FFFDD0] min-h-[calc(100vh-64px)]">
       <div className="container mx-auto px-6">
@@ -94,6 +124,11 @@ const Contact = () => {
             <div className="md:flex">
               <div className="md:w-1/2 p-8">
               <form onSubmit={handleReservationSubmit} className="space-y-6">
+                {reservationError && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+                    {reservationError}
+                  </div>
+                )}
                 <div>
                   <label
                     htmlFor="name"
@@ -260,9 +295,17 @@ const Contact = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full bg-[#FF9933] hover:bg-[#e88a2a] text-white px-6 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
+                    disabled={reservationSubmitting}
+                    className="w-full bg-[#FF9933] hover:bg-[#e88a2a] disabled:bg-gray-400 text-white px-6 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
                   >
-                    Book Now
+                    {reservationSubmitting ? (
+                      <>
+                        <i className="fas fa-spinner fa-spin mr-2"></i>
+                        Submitting...
+                      </>
+                    ) : (
+                      "Book Now"
+                    )}
                   </button>
                 </div>
               </form>
@@ -272,13 +315,11 @@ const Contact = () => {
                 <i className="fas fa-map-marker-alt text-4xl text-[#800000] mb-4"></i>
                 <h3 className="text-xl font-medium mb-2">Our Location</h3>
                 <p className="text-gray-600 mb-4">
-                  123 Divine Street, Culinary District
-                  <br />
-                  New Delhi, India 110001
+                Shop No. G-20, G-21, G-22 Ground Floor
+                Sarvoday Mall, Kalyan West, Maharashtra 421301
                 </p>
                 <p className="text-gray-600">
-                  <i className="fas fa-phone-alt mr-2"></i> +91 98765 43210
-                  <br />
+                  
                   <i className="fas fa-envelope mr-2"></i>{" "}
                   reservations@prasadfooddivine.com
                 </p>
@@ -286,7 +327,7 @@ const Contact = () => {
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.2536900776364!2d77.20651841508096!3d28.56270198244407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMzJzQ1LjciTiA3N8KwMTInMjkuNSJF!5e0!3m2!1sen!2sin!4v1624532516001!5m2!1sen!2sin"
                     width="100%"
-                    height="200"
+                    height="300"
                     style={{ border: 0 }}
                     allowFullScreen={true}
                     loading="lazy"
@@ -323,23 +364,23 @@ const Contact = () => {
               <div className="bg-gray-50 rounded-md p-4 text-left mb-6">
                 <div className="grid grid-cols-2 gap-2">
                   <div className="text-gray-500">Name:</div>
-                  <div>{reservationData.name || "Not provided"}</div>
+                  <div>{modalReservationData.name || "Not provided"}</div>
                   <div className="text-gray-500">Email:</div>
-                  <div>{reservationData.email || "Not provided"}</div>
+                  <div>{modalReservationData.email || "Not provided"}</div>
                   <div className="text-gray-500">Phone:</div>
-                  <div>{reservationData.phone || "Not provided"}</div>
+                  <div>{modalReservationData.phone || "Not provided"}</div>
                   <div className="text-gray-500">Outlet:</div>
-                  <div>{reservationData.outlet || "Not provided"}</div>
+                  <div>{modalReservationData.outlet || "Not provided"}</div>
                   <div className="text-gray-500">Date:</div>
-                  <div>{reservationData.date || "Not provided"}</div>
+                  <div>{modalReservationData.date || "Not provided"}</div>
                   <div className="text-gray-500">Time:</div>
-                  <div>{reservationData.time || "Not provided"}</div>
+                  <div>{modalReservationData.time || "Not provided"}</div>
                   <div className="text-gray-500">Guests:</div>
-                  <div>{reservationData.guests}</div>
-                  {reservationData.specialRequests && (
+                  <div>{modalReservationData.guests}</div>
+                  {modalReservationData.specialRequests && (
                     <>
                       <div className="text-gray-500">Special Requests:</div>
-                      <div>{reservationData.specialRequests}</div>
+                      <div>{modalReservationData.specialRequests}</div>
                     </>
                   )}
                 </div>
@@ -349,13 +390,17 @@ const Contact = () => {
                   className="bg-[#FF9933] hover:bg-[#e88a2a] text-white px-6 py-2 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
                   onClick={() => {
                     setShowConfirmation(false);
+                    setLastReservationSnapshot(null);
                   }}
                 >
                   Return to Home
                 </button>
                 <button
                   className="bg-transparent hover:bg-gray-100 text-gray-700 border border-gray-300 px-6 py-2 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
-                  onClick={() => setShowConfirmation(false)}
+                  onClick={() => {
+                    setShowConfirmation(false);
+                    setLastReservationSnapshot(null);
+                  }}
                 >
                   Close
                 </button>

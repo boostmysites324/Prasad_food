@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { supabase, isSupabaseReady } from "../lib/supabaseClient";
 
 const BookingForm = () => {
   const [bookingData, setBookingData] = useState({
@@ -14,6 +15,7 @@ const BookingForm = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const services = [
     "Fine Dining Experience",
@@ -46,29 +48,35 @@ const BookingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitError("");
+
+    if (!isSupabaseReady) {
+      setSubmitError("Supabase is not configured. Please try again later.");
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      const submissionData = {
-        ...bookingData,
-        id: Date.now(),
-        type: "booking",
-        status: "pending",
-        createdAt: new Date().toISOString().split('T')[0]
+    try {
+      const payload = {
+        customer_name: bookingData.customerName.trim(),
+        email: bookingData.email.trim(),
+        phone: bookingData.phone.trim(),
+        service: bookingData.service,
+        event_date: bookingData.eventDate,
+        event_type: bookingData.eventType,
+        guests: Number(bookingData.guests) || 0,
+        message: bookingData.message.trim(),
+        status: "pending"
       };
 
-      // Store in localStorage for admin panel
-      const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
-      existingSubmissions.push(submissionData);
-      localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
+      const { error } = await supabase.from("service_bookings").insert(payload);
 
-      console.log("Booking submitted:", submissionData);
+      if (error) {
+        throw error;
+      }
 
-      setIsSubmitting(false);
       setSubmitSuccess(true);
-      
-      // Reset form
       setBookingData({
         customerName: "",
         email: "",
@@ -80,9 +88,13 @@ const BookingForm = () => {
         message: ""
       });
 
-      // Hide success message after 5 seconds
       setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 2000);
+    } catch (err) {
+      console.error("Failed to submit booking:", err);
+      setSubmitError(err.message || "Unable to submit booking. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitSuccess) {
@@ -115,6 +127,11 @@ const BookingForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {submitError && (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            {submitError}
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">

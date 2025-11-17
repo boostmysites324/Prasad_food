@@ -74,15 +74,14 @@ const Footer = () => {
               <p className="flex items-start text-gray-300">
                 <i className="fas fa-map-marker-alt mt-1.5 mr-3 text-[#FF9933]"></i>
                 <span>
-                  123 Divine Street,
-                  <br />
-                  Culinary District, New Delhi
+                  Shop No. G-20, G-21, G-22 Ground Floor
+                  Sarvoday Mall, Kalyan West, Maharashtra 421301
                 </span>
               </p>
-              <p className="flex items-center text-gray-300">
+              {/* <p className="flex items-center text-gray-300">
                 <i className="fas fa-phone-alt mr-3 text-[#FF9933]"></i>
                 <span>+91 98765 43210</span>
-              </p>
+              </p> */}
               <p className="flex items-center text-gray-300">
                 <i className="fas fa-envelope mr-3 text-[#FF9933]"></i>
                 <span>info@prasadfooddivine.com</span>
