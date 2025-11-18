@@ -1,95 +1,98 @@
 import { Link } from "react-router-dom";
 
 // Import service images
-import corporateLunchImg from "../../assets/images/services/corporate-lunch-services.jpg";
-import festivalEventsImg from "../../assets/images/services/festival-special-events.jpg";
-import cookingWorkshopsImg from "../../assets/images/services/cooking-workshops.jpg";
 import servicesBgImg from "../../assets/images/services/services.jpeg";
+import banquetImg from "../../assets/images/gallery/ambiance/Banquets/01 Virar/DSC09255-HDR.jpg";
+import resortImg from "../../assets/images/gallery/ambiance/DSC01418-HDR.jpg";
+import cateringImg from "../../assets/images/gallery/events/Events 1.jpg";
+import tiffinImg from "../../assets/images/gallery/food/Veg Biryani.jpg";
+import takeawayImg from "../../assets/images/gallery/food/Kaju Masala.jpg";
+import reservationImg from "../../assets/images/gallery/ambiance/Interior/Thane/DSC03261-HDR.jpg";
 
 const Services = () => {
   const services = [
     {
-      title: "Fine Dining Experience",
-      description: "Experience authentic Indian vegetarian cuisine in our elegant restaurant setting with traditional ambiance and exceptional service.",
+      title: "Banquet Halls",
+      description: "Elegant, spacious halls for weddings, birthdays, and all kinds of celebrations.",
       features: [
-        "Traditional Indian vegetarian menu",
-        "Elegant dining atmosphere",
-        "Professional wait staff",
-        "Live cooking demonstrations",
-        "Wine and beverage pairing"
+        "Spacious and elegant venues",
+        "Perfect for weddings and celebrations",
+        "Birthday party arrangements",
+        "Professional event management",
+        "Customizable decoration options"
       ],
-      image: "/src/assets/images/gallery/ambiance/DSC09255-HDR.jpg",
-      icon: "fa-utensils",
+      image: banquetImg,
+      icon: "fa-building",
       color: "from-orange-50 to-orange-100"
     },
     {
-      title: "Catering Services",
-      description: "Professional catering for weddings, corporate events, and special occasions with customized vegetarian menus.",
+      title: "Resorts",
+      description: "Perfect getaway spots for family gatherings, parties, and special occasions in a peaceful natural setting.",
       features: [
-        "Wedding and reception catering",
-        "Corporate event catering",
-        "Customized menu planning",
-        "On-site cooking and service",
-        "Traditional thali arrangements"
+        "Peaceful natural setting",
+        "Family gathering venues",
+        "Party and celebration spaces",
+        "Special occasion arrangements",
+        "Scenic and relaxing environment"
       ],
-      image: "/src/assets/images/gallery/events/Events 1.jpg",
-      icon: "fa-users",
+      image: resortImg,
+      icon: "fa-mountain",
       color: "from-green-50 to-green-100"
     },
     {
-      title: "Takeaway & Delivery",
-      description: "Enjoy our delicious vegetarian dishes in the comfort of your home with our convenient takeaway and delivery services.",
+      title: "Outdoor Catering",
+      description: "Hosting an event? We deliver your favorite dishes and full catering service right to your venue.",
       features: [
-        "Online ordering system",
-        "Fast delivery service",
-        "Eco-friendly packaging",
-        "Contactless delivery",
-        "Real-time order tracking"
+        "Full catering service delivery",
+        "Your favorite dishes available",
+        "On-site event catering",
+        "Professional service staff",
+        "Customized menu options"
       ],
-      image: "/src/assets/images/gallery/food/Veg Biryani.jpg",
-      icon: "fa-motorcycle",
+      image: cateringImg,
+      icon: "fa-truck",
       color: "from-blue-50 to-blue-100"
     },
     {
-      title: "Corporate Lunch Services",
-      description: "Specialized corporate lunch services designed for business meetings, team lunches, and office events.",
+      title: "Tiffins & Meal Boxes",
+      description: "Fresh, balanced meals - ideal for daily needs, offices, or travel.",
       features: [
-        "Business lunch packages",
-        "Team building meals",
-        "Conference catering",
-        "Healthy meal options",
-        "Professional presentation"
+        "Fresh and balanced meals",
+        "Perfect for daily needs",
+        "Office meal solutions",
+        "Travel-friendly packaging",
+        "Healthy and nutritious options"
       ],
-      image: corporateLunchImg,
-      icon: "fa-briefcase",
+      image: tiffinImg,
+      icon: "fa-box",
       color: "from-purple-50 to-purple-100"
     },
     {
-      title: "Festival & Special Events",
-      description: "Celebrate festivals and special occasions with our traditional vegetarian feast arrangements and special menus.",
+      title: "Take Away & Pick Up",
+      description: "Order your favorite dishes with just one call and pick them up hot and fresh from our restaurant.",
       features: [
-        "Festival special menus",
-        "Traditional feast arrangements",
-        "Religious ceremony catering",
-        "Seasonal special dishes",
-        "Cultural event catering"
+        "Easy phone ordering",
+        "Hot and fresh pick-up",
+        "Quick service",
+        "Your favorite dishes available",
+        "Convenient pick-up location"
       ],
-      image: festivalEventsImg,
-      icon: "fa-star",
+      image: takeawayImg,
+      icon: "fa-shopping-bag",
       color: "from-red-50 to-red-100"
     },
     {
-      title: "Cooking Classes & Workshops",
-      description: "Learn the art of traditional Indian vegetarian cooking with our expert chefs through interactive classes and workshops.",
+      title: "Table Reservations",
+      description: "Book your table in advance for a smooth and relaxed dining experience.",
       features: [
-        "Traditional recipe classes",
-        "Spice blending workshops",
-        "Cooking demonstrations",
-        "Hands-on training",
-        "Recipe booklets included"
+        "Advance table booking",
+        "Smooth dining experience",
+        "Relaxed atmosphere",
+        "Preferred seating arrangements",
+        "Hassle-free reservations"
       ],
-      image: cookingWorkshopsImg,
-      icon: "fa-graduation-cap",
+      image: reservationImg,
+      icon: "fa-calendar-check",
       color: "from-yellow-50 to-yellow-100"
     }
   ];
@@ -135,7 +138,7 @@ const Services = () => {
               Our Services
             </h1>
             <p className="text-xl mb-8 max-w-lg">
-              Discover our comprehensive range of vegetarian dining services, from fine dining to catering and everything in between.
+              Discover our comprehensive range of services, from elegant banquet halls and resorts to catering, tiffins, and convenient dining options.
             </p>
             <Link
               to="/contact"
@@ -154,7 +157,7 @@ const Services = () => {
                 Our Comprehensive Services
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                From traditional fine dining to modern delivery services, we offer a complete range of vegetarian culinary experiences tailored to your needs.
+                From elegant banquet halls and peaceful resorts to outdoor catering, tiffins, and convenient dining services, we offer a complete range of solutions tailored to your needs.
               </p>
             </div>
 
