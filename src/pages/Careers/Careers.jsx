@@ -1,24 +1,29 @@
 import { useState } from "react";
+import { supabase, isSupabaseReady } from "../../lib/supabaseClient";
+
+const initialFormState = {
+  fullName: "",
+  email: "",
+  phone: "",
+  location: "",
+  currentPosition: "",
+  company: "",
+  duration: "",
+  responsibilities: "",
+  degree: "",
+  institution: "",
+  graduationYear: "",
+  additionalInfo: "",
+};
 
 const Careers = () => {
   const [department, setDepartment] = useState("All");
   const [location, setLocation] = useState("All");
   const [formStep, setFormStep] = useState(1);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    location: "",
-    currentPosition: "",
-    company: "",
-    duration: "",
-    responsibilities: "",
-    degree: "",
-    institution: "",
-    graduationYear: "",
-    additionalInfo: "",
-  });
+  const [formData, setFormData] = useState(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -26,23 +31,57 @@ const Careers = () => {
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Store career application in localStorage for admin panel
-    const submissionData = {
-      ...formData,
-      id: Date.now(),
-      type: "career",
+
+    if (!isSupabaseReady) {
+      setSubmitError(
+        "Supabase is not configured. Please contact the administrator."
+      );
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    const payload = {
+      full_name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      current_location: formData.location,
+      current_position: formData.currentPosition,
+      company: formData.company,
+      duration: formData.duration,
+      responsibilities: formData.responsibilities,
+      degree: formData.degree,
+      institution: formData.institution,
+      graduation_year: formData.graduationYear,
+      additional_info: formData.additionalInfo,
       status: "pending",
-      createdAt: new Date().toISOString().split('T')[0]
+      applied_via: "website",
+      submitted_at: new Date().toISOString(),
     };
-    
-    const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
-    existingSubmissions.push(submissionData);
-    localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
-    
-    setShowSuccessModal(true);
+
+    try {
+      const { error } = await supabase
+        .from("career_applications")
+        .insert([payload]);
+
+      if (error) {
+        throw error;
+      }
+
+      setFormData(initialFormState);
+      setFormStep(1);
+      setShowSuccessModal(true);
+    } catch (err) {
+      console.error("Failed to submit career application:", err);
+      setSubmitError(
+        err.message || "Unable to submit your application. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const handleDepartmentChange = (e, value) => {
     e.preventDefault();
@@ -697,6 +736,9 @@ const Careers = () => {
                     Previous
                   </button>
                 )}
+                {submitError && (
+                  <p className="text-sm text-red-600 mr-auto">{submitError}</p>
+                )}
                 {formStep < 5 ? (
                   <button
                     type="button"
@@ -708,9 +750,10 @@ const Careers = () => {
                 ) : (
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-6 rounded-button whitespace-nowrap transition duration-300 cursor-pointer ml-auto"
                   >
-                    Submit Application
+                    {isSubmitting ? "Submitting..." : "Submit Application"}
                   </button>
                 )}
               </div>

@@ -1,20 +1,25 @@
 import React, { useState } from "react";
+import { supabase, isSupabaseReady } from "../../lib/supabaseClient";
 import ownerImage from "../../assets/images/team/owner1.jpeg";
 
+const initialFranchiseFormState = {
+  fullName: "",
+  email: "",
+  phone: "",
+  city: "",
+  investment: "",
+  timeline: "",
+  background: "",
+  message: "",
+};
+
 const Franchise = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    city: "",
-    investment: "",
-    timeline: "",
-    background: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(initialFranchiseFormState);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const testimonialImages = [ownerImage, ownerImage];
 
   const handleFormChange = (e) => {
@@ -25,23 +30,52 @@ const Franchise = () => {
     });
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    
-    // Store franchise submission in localStorage for admin panel
-    const submissionData = {
-      ...formData,
-      id: Date.now(),
-      type: "franchise",
+
+    if (!isSupabaseReady) {
+      setSubmitError(
+        "Supabase is not configured. Please contact the administrator."
+      );
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    const payload = {
+      full_name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      preferred_city: formData.city,
+      investment_range: formData.investment,
+      start_timeline: formData.timeline,
+      business_background: formData.background,
+      additional_message: formData.message,
       status: "pending",
-      createdAt: new Date().toISOString().split('T')[0]
+      submitted_at: new Date().toISOString(),
+      source: "website",
     };
-    
-    const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
-    existingSubmissions.push(submissionData);
-    localStorage.setItem('contactSubmissions', JSON.stringify(existingSubmissions));
-    
-    setShowSuccessModal(true);
+
+    try {
+      const { error } = await supabase
+        .from("franchise_applications")
+        .insert([payload]);
+
+      if (error) {
+        throw error;
+      }
+
+      setShowSuccessModal(true);
+      setFormData(initialFranchiseFormState);
+    } catch (err) {
+      console.error("Failed to submit franchise application:", err);
+      setSubmitError(
+        err.message || "Unable to submit your application. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const toggleAccordion = (index) => {
@@ -909,11 +943,15 @@ const Franchise = () => {
                       ></textarea>
                     </div>
                     <div>
+                      {submitError && (
+                        <p className="text-sm text-red-600 mb-2">{submitError}</p>
+                      )}
                       <button
                         type="submit"
+                        disabled={isSubmitting}
                         className="w-full bg-[#FF9933] hover:bg-[#e88a2a] text-white px-6 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
                       >
-                        Submit Application
+                        {isSubmitting ? "Submitting..." : "Submit Application"}
                       </button>
                     </div>
                   </form>

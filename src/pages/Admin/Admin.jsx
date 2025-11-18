@@ -26,6 +26,8 @@ const Admin = () => {
   const [outlets, setOutlets] = useState([]);
   const [staff, setStaff] = useState([]);
   const [contactSubmissions, setContactSubmissions] = useState([]);
+  const [careerApplications, setCareerApplications] = useState([]);
+  const [franchiseApplications, setFranchiseApplications] = useState([]);
   const [reports, setReports] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
@@ -51,6 +53,10 @@ const Admin = () => {
   const [reservationSyncing, setReservationSyncing] = useState(false);
   const [bookingError, setBookingError] = useState("");
   const [reservationError, setReservationError] = useState("");
+  const [careerLoading, setCareerLoading] = useState(false);
+  const [franchiseLoading, setFranchiseLoading] = useState(false);
+  const [careerError, setCareerError] = useState("");
+  const [franchiseError, setFranchiseError] = useState("");
 
   // Mock data for bookings
   const mockBookings = [
@@ -401,6 +407,47 @@ const Admin = () => {
     createdAt: row.created_at
   });
 
+  const mapCareerApplicationRow = (row) => ({
+    id: row.id,
+    fullName: row.full_name || row.fullName,
+    email: row.email,
+    phone: row.phone,
+    location: row.current_location || row.location,
+    currentPosition: row.current_position || row.currentPosition,
+    company: row.company,
+    duration: row.duration,
+    responsibilities: row.responsibilities,
+    degree: row.degree,
+    institution: row.institution,
+    graduationYear: row.graduation_year || row.graduationYear,
+    additionalInfo: row.additional_info || row.additionalInfo,
+    status: row.status || "pending",
+    createdAt: row.created_at || row.submitted_at
+  });
+
+  const mapFranchiseApplicationRow = (row) => ({
+    id: row.id,
+    fullName: row.full_name || row.fullName,
+    email: row.email,
+    phone: row.phone,
+    city: row.preferred_city || row.city,
+    investment: row.investment_range || row.investment,
+    timeline: row.start_timeline || row.timeline,
+    background: row.business_background || row.background,
+    message: row.additional_message || row.message,
+    status: row.status || "pending",
+    createdAt: row.created_at || row.submitted_at
+  });
+
+  const formatDateTime = (value) => {
+    if (!value) return "—";
+    try {
+      return new Date(value).toLocaleString();
+    } catch {
+      return value;
+    }
+  };
+
   const fetchServiceBookings = useCallback(async () => {
     if (!isSupabaseReady) {
       console.warn("Supabase is not configured. Using mock bookings data.");
@@ -455,6 +502,56 @@ const Admin = () => {
     }
   }, [isSupabaseReady]);
 
+  const fetchCareerApplications = useCallback(async () => {
+    if (!isSupabaseReady) {
+      console.warn("Supabase is not configured. Career applications cannot be loaded.");
+      return;
+    }
+
+    setCareerLoading(true);
+    setCareerError("");
+
+    try {
+      const { data, error } = await supabase
+        .from("career_applications")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setCareerApplications((data || []).map(mapCareerApplicationRow));
+    } catch (err) {
+      console.error("Failed to fetch career applications:", err);
+      setCareerError(err.message || "Unable to load career applications.");
+    } finally {
+      setCareerLoading(false);
+    }
+  }, [isSupabaseReady]);
+
+  const fetchFranchiseApplications = useCallback(async () => {
+    if (!isSupabaseReady) {
+      console.warn("Supabase is not configured. Franchise applications cannot be loaded.");
+      return;
+    }
+
+    setFranchiseLoading(true);
+    setFranchiseError("");
+
+    try {
+      const { data, error } = await supabase
+        .from("franchise_applications")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setFranchiseApplications((data || []).map(mapFranchiseApplicationRow));
+    } catch (err) {
+      console.error("Failed to fetch franchise applications:", err);
+      setFranchiseError(err.message || "Unable to load franchise applications.");
+    } finally {
+      setFranchiseLoading(false);
+    }
+  }, [isSupabaseReady]);
+
   useEffect(() => {
     setBookings(mockBookings);
     setReservations(mockReservations);
@@ -468,6 +565,16 @@ const Admin = () => {
     // Load reservations from localStorage
     const reservationSubmissions = storedSubmissions.filter(sub => sub.type === 'reservation');
     setReservations([...mockReservations, ...reservationSubmissions]);
+
+    const careerSubmissions = storedSubmissions.filter(sub => sub.type === 'career');
+    if (careerSubmissions.length) {
+      setCareerApplications(careerSubmissions);
+    }
+
+    const franchiseSubmissions = storedSubmissions.filter(sub => sub.type === 'franchise');
+    if (franchiseSubmissions.length) {
+      setFranchiseApplications(franchiseSubmissions);
+    }
     
     // Generate comprehensive reports with chart data
     setReports({
@@ -523,7 +630,14 @@ const Admin = () => {
   useEffect(() => {
     fetchServiceBookings();
     fetchTableReservations();
-  }, [fetchServiceBookings, fetchTableReservations]);
+    fetchCareerApplications();
+    fetchFranchiseApplications();
+  }, [
+    fetchServiceBookings,
+    fetchTableReservations,
+    fetchCareerApplications,
+    fetchFranchiseApplications
+  ]);
 
   // Authentication
   const handleLogin = (e) => {
@@ -692,6 +806,90 @@ const Admin = () => {
     setContactSubmissions([...mockContactSubmissions, ...storedSubmissions]);
   };
 
+  const updateCareerApplicationStatus = async (applicationId, newStatus) => {
+    setCareerApplications(prev =>
+      prev.map(application =>
+        application.id === applicationId ? { ...application, status: newStatus } : application
+      )
+    );
+
+    if (!isSupabaseReady) return;
+
+    const { error } = await supabase
+      .from("career_applications")
+      .update({ status: newStatus })
+      .eq("id", applicationId);
+
+    if (error) {
+      console.error("Failed to update career application status:", error);
+      alert("Failed to update career application status. Please try again.");
+      fetchCareerApplications();
+    }
+  };
+
+  const deleteCareerApplication = async (applicationId) => {
+    if (!window.confirm("Delete this career application?")) {
+      return;
+    }
+
+    setCareerApplications(prev => prev.filter(application => application.id !== applicationId));
+
+    if (!isSupabaseReady) return;
+
+    const { error } = await supabase
+      .from("career_applications")
+      .delete()
+      .eq("id", applicationId);
+
+    if (error) {
+      console.error("Failed to delete career application:", error);
+      alert("Failed to delete career application. Please try again.");
+      fetchCareerApplications();
+    }
+  };
+
+  const updateFranchiseApplicationStatus = async (applicationId, newStatus) => {
+    setFranchiseApplications(prev =>
+      prev.map(application =>
+        application.id === applicationId ? { ...application, status: newStatus } : application
+      )
+    );
+
+    if (!isSupabaseReady) return;
+
+    const { error } = await supabase
+      .from("franchise_applications")
+      .update({ status: newStatus })
+      .eq("id", applicationId);
+
+    if (error) {
+      console.error("Failed to update franchise application status:", error);
+      alert("Failed to update franchise application status. Please try again.");
+      fetchFranchiseApplications();
+    }
+  };
+
+  const deleteFranchiseApplication = async (applicationId) => {
+    if (!window.confirm("Delete this franchise application?")) {
+      return;
+    }
+
+    setFranchiseApplications(prev => prev.filter(application => application.id !== applicationId));
+
+    if (!isSupabaseReady) return;
+
+    const { error } = await supabase
+      .from("franchise_applications")
+      .delete()
+      .eq("id", applicationId);
+
+    if (error) {
+      console.error("Failed to delete franchise application:", error);
+      alert("Failed to delete franchise application. Please try again.");
+      fetchFranchiseApplications();
+    }
+  };
+
   // Outlet management
   const updateOutlet = (outletId, updatedData) => {
     setOutlets(outlets.map(outlet => 
@@ -813,6 +1011,8 @@ const Admin = () => {
   const totalStaff = staff.length;
   const totalContactSubmissions = contactSubmissions.length;
   const pendingSubmissions = contactSubmissions.filter(s => s.status === "pending").length;
+  const totalCareerApplications = careerApplications.length;
+  const totalFranchiseApplications = franchiseApplications.length;
 
   if (!isAuthenticated) {
     return (
@@ -986,6 +1186,8 @@ const Admin = () => {
                 { id: "bookings", name: "Service Bookings", icon: "fa-calendar-check" },
                 { id: "reservations", name: "Table Reservations", icon: "fa-table" },
                 { id: "contact", name: "Contact Submissions", icon: "fa-envelope" },
+                { id: "career", name: "Career Applications", icon: "fa-user-graduate" },
+                { id: "franchise", name: "Franchise Leads", icon: "fa-handshake" },
                 { id: "outlets", name: "Outlet Management", icon: "fa-store" },
                 { id: "staff", name: "Staff Management", icon: "fa-user-tie" },
                 { id: "reports", name: "Reports & Analytics", icon: "fa-chart-bar" },
@@ -1017,7 +1219,7 @@ const Admin = () => {
               <h2 className="text-3xl font-serif text-[#800000] mb-8">Dashboard</h2>
               
               {/* Statistics Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="flex items-center">
                     <div className="p-3 bg-blue-100 rounded-full">
@@ -1062,6 +1264,30 @@ const Admin = () => {
                     <div className="ml-4">
                       <p className="text-sm text-gray-600">Staff Members</p>
                       <p className="text-2xl font-bold text-gray-900">{totalStaff}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="flex items-center">
+                    <div className="p-3 bg-orange-100 rounded-full">
+                      <i className="fas fa-user-graduate text-orange-600 text-xl"></i>
+                    </div>
+                    <div className="ml-4">
+                      <p className="text-sm text-gray-600">Career Applications</p>
+                      <p className="text-2xl font-bold text-gray-900">{totalCareerApplications}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="flex items-center">
+                    <div className="p-3 bg-purple-100 rounded-full">
+                      <i className="fas fa-handshake text-purple-600 text-xl"></i>
+                    </div>
+                    <div className="ml-4">
+                      <p className="text-sm text-gray-600">Franchise Leads</p>
+                      <p className="text-2xl font-bold text-gray-900">{totalFranchiseApplications}</p>
                     </div>
                   </div>
                 </div>
@@ -1740,6 +1966,257 @@ const Admin = () => {
                     </tbody>
                   </table>
                     </div>
+              </div>
+            </div>
+          )}
+
+          {/* Career Applications */}
+          {activeTab === "career" && (
+            <div>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                <div>
+                  <h2 className="text-3xl font-serif text-[#800000]">Career Applications</h2>
+                  <p className="text-gray-600 mt-1">Monitor applications submitted via the careers page.</p>
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    onClick={fetchCareerApplications}
+                    disabled={careerLoading}
+                    className="bg-[#FF9933] hover:bg-[#e88a2a] disabled:opacity-70 disabled:cursor-not-allowed text-white px-4 py-2 rounded-md font-medium transition-colors"
+                  >
+                    <i className="fas fa-sync-alt mr-2"></i>
+                    {careerLoading ? "Refreshing..." : "Refresh"}
+                  </button>
+                </div>
+              </div>
+
+              {careerError && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+                  {careerError}
+                </div>
+              )}
+
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="overflow-x-auto">
+                  {careerApplications.length > 0 ? (
+                    <table className="w-full">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="text-left py-4 px-6">Applicant</th>
+                          <th className="text-left py-4 px-6">Experience</th>
+                          <th className="text-left py-4 px-6">Education</th>
+                          <th className="text-left py-4 px-6">Notes</th>
+                          <th className="text-left py-4 px-6">Status</th>
+                          <th className="text-left py-4 px-6">Submitted</th>
+                          <th className="text-left py-4 px-6">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {careerApplications.map((application) => (
+                          <tr key={application.id} className="border-b last:border-b-0 hover:bg-gray-50 transition-colors">
+                            <td className="py-4 px-6">
+                              <p className="font-medium">{application.fullName || application.name || "—"}</p>
+                              {application.email && (
+                                <p className="text-sm text-gray-600">{application.email}</p>
+                              )}
+                              {application.phone && (
+                                <p className="text-sm text-gray-600">{application.phone}</p>
+                              )}
+                              {application.location && (
+                                <p className="text-xs text-gray-500 mt-1">Location: {application.location}</p>
+                              )}
+                            </td>
+                            <td className="py-4 px-6 text-sm text-gray-700 space-y-1">
+                              {application.currentPosition && (
+                                <p><strong>Role:</strong> {application.currentPosition}</p>
+                              )}
+                              {application.company && (
+                                <p><strong>Company:</strong> {application.company}</p>
+                              )}
+                              {application.duration && (
+                                <p><strong>Duration:</strong> {application.duration}</p>
+                              )}
+                            </td>
+                            <td className="py-4 px-6 text-sm text-gray-700 space-y-1">
+                              {application.degree && (
+                                <p><strong>Degree:</strong> {application.degree}</p>
+                              )}
+                              {application.institution && (
+                                <p><strong>Institution:</strong> {application.institution}</p>
+                              )}
+                              {application.graduationYear && (
+                                <p><strong>Year:</strong> {application.graduationYear}</p>
+                              )}
+                            </td>
+                            <td className="py-4 px-6 text-sm text-gray-700">
+                              {application.responsibilities && (
+                                <p className="mb-2"><strong>Highlights:</strong> {application.responsibilities}</p>
+                              )}
+                              {application.additionalInfo && (
+                                <p><strong>Additional:</strong> {application.additionalInfo}</p>
+                              )}
+                              {!application.responsibilities && !application.additionalInfo && (
+                                <p className="text-gray-400">—</p>
+                              )}
+                            </td>
+                            <td className="py-4 px-6">
+                              <select
+                                value={application.status || "pending"}
+                                onChange={(e) =>
+                                  updateCareerApplicationStatus(application.id, e.target.value)
+                                }
+                                className={`px-3 py-1 rounded-full text-xs border transition-colors ${
+                                  (application.status || "pending") === "confirmed"
+                                    ? "bg-green-100 text-green-800 border-green-200"
+                                    : (application.status || "pending") === "pending"
+                                    ? "bg-yellow-100 text-yellow-800 border-yellow-200"
+                                    : "bg-red-100 text-red-800 border-red-200"
+                                }`}
+                              >
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Shortlisted</option>
+                                <option value="cancelled">Rejected</option>
+                              </select>
+                            </td>
+                            <td className="py-4 px-6 text-sm text-gray-700">
+                              {formatDateTime(application.createdAt)}
+                            </td>
+                            <td className="py-4 px-6">
+                              <button
+                                onClick={() => deleteCareerApplication(application.id)}
+                                className="text-red-600 hover:text-red-800 text-sm font-medium"
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <p className="p-6 text-center text-gray-500">
+                      No career applications yet.
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Franchise Applications */}
+          {activeTab === "franchise" && (
+            <div>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                <div>
+                  <h2 className="text-3xl font-serif text-[#800000]">Franchise Applications</h2>
+                  <p className="text-gray-600 mt-1">Track potential partners from the franchise page.</p>
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    onClick={fetchFranchiseApplications}
+                    disabled={franchiseLoading}
+                    className="bg-[#FF9933] hover:bg-[#e88a2a] disabled:opacity-70 disabled:cursor-not-allowed text-white px-4 py-2 rounded-md font-medium transition-colors"
+                  >
+                    <i className="fas fa-sync-alt mr-2"></i>
+                    {franchiseLoading ? "Refreshing..." : "Refresh"}
+                  </button>
+                </div>
+              </div>
+
+              {franchiseError && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+                  {franchiseError}
+                </div>
+              )}
+
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="overflow-x-auto">
+                  {franchiseApplications.length > 0 ? (
+                    <table className="w-full">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="text-left py-4 px-6">Applicant</th>
+                          <th className="text-left py-4 px-6">Opportunity Details</th>
+                          <th className="text-left py-4 px-6">Preferences</th>
+                          <th className="text-left py-4 px-6">Message</th>
+                          <th className="text-left py-4 px-6">Status</th>
+                          <th className="text-left py-4 px-6">Submitted</th>
+                          <th className="text-left py-4 px-6">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {franchiseApplications.map((application) => (
+                          <tr key={application.id} className="border-b last:border-b-0 hover:bg-gray-50 transition-colors">
+                            <td className="py-4 px-6">
+                              <p className="font-medium">{application.fullName || application.name || "—"}</p>
+                              {application.email && (
+                                <p className="text-sm text-gray-600">{application.email}</p>
+                              )}
+                              {application.phone && (
+                                <p className="text-sm text-gray-600">{application.phone}</p>
+                              )}
+                            </td>
+                            <td className="py-4 px-6 text-sm text-gray-700 space-y-1">
+                              {application.city && (
+                                <p><strong>Preferred City:</strong> {application.city}</p>
+                              )}
+                              {application.investment && (
+                                <p><strong>Investment:</strong> {application.investment}</p>
+                              )}
+                              {application.timeline && (
+                                <p><strong>Timeline:</strong> {application.timeline}</p>
+                              )}
+                            </td>
+                            <td className="py-4 px-6 text-sm text-gray-700">
+                              {application.background ? (
+                                <p><strong>Background:</strong> {application.background}</p>
+                              ) : (
+                                <span className="text-gray-400">—</span>
+                              )}
+                            </td>
+                            <td className="py-4 px-6 text-sm text-gray-700">
+                              {application.message ? application.message : <span className="text-gray-400">—</span>}
+                            </td>
+                            <td className="py-4 px-6">
+                              <select
+                                value={application.status || "pending"}
+                                onChange={(e) =>
+                                  updateFranchiseApplicationStatus(application.id, e.target.value)
+                                }
+                                className={`px-3 py-1 rounded-full text-xs border transition-colors ${
+                                  (application.status || "pending") === "confirmed"
+                                    ? "bg-green-100 text-green-800 border-green-200"
+                                    : (application.status || "pending") === "pending"
+                                    ? "bg-yellow-100 text-yellow-800 border-yellow-200"
+                                    : "bg-red-100 text-red-800 border-red-200"
+                                }`}
+                              >
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">In Discussion</option>
+                                <option value="cancelled">Closed</option>
+                              </select>
+                            </td>
+                            <td className="py-4 px-6 text-sm text-gray-700">
+                              {formatDateTime(application.createdAt)}
+                            </td>
+                            <td className="py-4 px-6">
+                              <button
+                                onClick={() => deleteFranchiseApplication(application.id)}
+                                className="text-red-600 hover:text-red-800 text-sm font-medium"
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <p className="p-6 text-center text-gray-500">
+                      No franchise applications yet.
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           )}
