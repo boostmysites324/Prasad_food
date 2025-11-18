@@ -15,7 +15,7 @@ const Franchise = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const testimonialImages = [ownerImage, ownerImage, ownerImage];
+  const testimonialImages = [ownerImage, ownerImage];
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -49,11 +49,11 @@ const Franchise = () => {
   };
 
   const handleNextTestimonial = () => {
-    setActiveTestimonial((prev) => (prev + 1) % 3);
+    setActiveTestimonial((prev) => (prev + 1) % 2);
   };
 
   const handlePrevTestimonial = () => {
-    setActiveTestimonial((prev) => (prev - 1 + 3) % 3);
+    setActiveTestimonial((prev) => (prev - 1 + 2) % 2);
   };
 
   return (
@@ -203,7 +203,7 @@ const Franchise = () => {
                         </p>
                       </div>
                       <div className="text-xl font-medium text-[#800000]">
-                        ₹30-40 Lakhs
+                        ₹1.5cr to 2.0cr
                       </div>
                     </div>
                     <div className="flex items-center justify-between pb-4 border-b border-gray-100">
@@ -216,7 +216,7 @@ const Franchise = () => {
                         </p>
                       </div>
                       <div className="text-xl font-medium text-[#800000]">
-                        ₹5-8 Lakhs
+                        ₹5-10 Lakhs
                       </div>
                     </div>
                     <div className="flex items-center justify-between pb-4 border-b border-gray-100">
@@ -229,7 +229,7 @@ const Franchise = () => {
                         </p>
                       </div>
                       <div className="text-xl font-medium text-[#800000]">
-                        ₹10-15 Lakhs
+                        ₹15-20 Lakhs
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
@@ -240,7 +240,7 @@ const Franchise = () => {
                         <p className="text-gray-600 text-sm">Estimated range</p>
                       </div>
                       <div className="text-2xl font-bold text-[#800000]">
-                        ₹60-83 Lakhs
+                        ₹2.0cr to 2.5cr
                       </div>
                     </div>
                   </div>
@@ -259,7 +259,7 @@ const Franchise = () => {
                           Minimum Space
                         </h4>
                         <p className="text-gray-600">
-                          800–1500 sq. ft. depending on location type
+                          3000-6000 sq. ft.
                         </p>
                       </div>
                     </div>
@@ -272,8 +272,7 @@ const Franchise = () => {
                           Ideal Locations
                         </h4>
                         <p className="text-gray-600">
-                          High footfall areas, near temples, malls, or
-                          residential hubs
+                          Self Owned / Commercial Hubs next to residentials / High Footfall areas
                         </p>
                       </div>
                     </div>
@@ -283,10 +282,10 @@ const Franchise = () => {
                       </div>
                       <div>
                         <h4 className="font-medium text-gray-800 mb-1">
-                          Expected ROI Timeline
+                          Expected ROI
                         </h4>
                         <p className="text-gray-600">
-                          12–18 months based on location and operations
+                          40 to 60%
                         </p>
                       </div>
                     </div>
@@ -298,7 +297,7 @@ const Franchise = () => {
                         <h4 className="font-medium text-gray-800 mb-1">
                           Royalty Fee
                         </h4>
-                        <p className="text-gray-600">5-7% of monthly revenue</p>
+                        <p className="text-gray-600">3 to 4%</p>
                       </div>
                     </div>
                     <div className="flex">
@@ -310,7 +309,7 @@ const Franchise = () => {
                           Marketing Contribution
                         </h4>
                         <p className="text-gray-600">
-                          2% of monthly revenue for national campaigns
+                          Depending on Sale
                         </p>
                       </div>
                     </div>
@@ -355,8 +354,7 @@ const Franchise = () => {
                       {
                         [
                           "Opening a Prasad Food Divine franchise was the best business decision I've made. The brand's strong reputation for authentic sattvic cuisine immediately attracted customers, and the operational support from the head office has been exceptional. Within 14 months, we achieved full ROI and are now planning to open our second location.",
-                          "As someone with no prior restaurant experience, I was hesitant to enter this industry. The Prasad team provided comprehensive training and continuous guidance that made the transition seamless. Our location has become a community favorite, and we're seeing 20% year-over-year growth since opening two years ago.",
-                          "After running independent restaurants for 15 years, we decided to join the Prasad franchise family. The difference in operational efficiency and brand recognition has been remarkable. Their systems and processes have helped us increase our profit margins while reducing our working hours. The investment has paid for itself many times over.",
+                          "As someone with no prior restaurant experience, I was hesitant to enter this industry. The Prasad team provided comprehensive training and continuous guidance that made the transition seamless. Our location has become a community favourite, and we're seeing 20% year-over-year growth since opening two years ago.",
                         ][activeTestimonial]
                       }
                     </p>
@@ -364,18 +362,16 @@ const Franchise = () => {
                       <h4 className="font-serif text-[#800000] text-xl">
                         {
                           [
-                            "Rajiv Mehta",
-                            "Priya Sharma",
-                            "Anil & Sunita Patel",
+                            "Shankar Shetty",
+                            "Sunil Chavan",
                           ][activeTestimonial]
                         }
                       </h4>
                       <p className="text-gray-600">
                         {
                           [
-                            "Franchise Owner, Mumbai • 3 Years with Prasad Food Divine",
-                            "Franchise Owner, Bangalore • 2 Years with Prasad Food Divine",
-                            "Franchise Owners, Ahmedabad • 4 Years with Prasad Food Divine",
+                            "Franchise Owner, Mumbai • 10 Years + with Prasad Food Divine",
+                            "Franchise Owner, Kalyan • 5 Years with Prasad Food Divine",
                           ][activeTestimonial]
                         }
                       </p>
@@ -404,7 +400,7 @@ const Franchise = () => {
               </button>
             </div>
             <div className="flex justify-center mt-6">
-              {[0, 1, 2].map((index) => (
+              {[0, 1].map((index) => (
                 <button
                   key={index}
                   onClick={() => setActiveTestimonial(index)}
@@ -537,7 +533,7 @@ const Franchise = () => {
                       title: "Outlet Setup & Training",
                       description:
                         "Location setup, staff hiring, and comprehensive operational training.",
-                      duration: "6-8 Weeks",
+                      duration: "10-12 Weeks",
                     },
                     {
                       icon: "fa-store",
@@ -613,7 +609,7 @@ const Franchise = () => {
                   icon: "fa-chalkboard-teacher",
                   title: "Training & Onboarding",
                   description:
-                    "4-week comprehensive training program covering operations, cooking techniques, customer service, and management.",
+                    "10 Weeks comprehensive training program covering operations, cooking techniques, customer service, and management.",
                 },
                 {
                   icon: "fa-bullhorn",
@@ -629,9 +625,9 @@ const Franchise = () => {
                 },
                 {
                   icon: "fa-book",
-                  title: "Operations Manual",
+                  title: "Operational Manual",
                   description:
-                    "Detailed SOPs for all aspects of restaurant operations, ensuring consistency and quality.",
+                    "Detailed SOPs & Video Processes for all aspects of restaurant operations, ensuring consistency and quality.",
                 },
                 {
                   icon: "fa-desktop",
@@ -946,7 +942,7 @@ const Franchise = () => {
                     question:
                       "What is the total investment required to open a Prasad Food Divine franchise?",
                     answer:
-                      "The total investment ranges from ₹60-83 Lakhs, depending on the location, size, and local market conditions. This includes the franchise fee, setup costs, equipment, initial inventory, and working capital for the first few months of operation.",
+                      "The total investment ranges from 2-3 crores, depending on the location, size, and local market conditions. This includes the franchise fee, setup costs, equipment, initial inventory, and working capital for the first few months of operation.",
                   },
                   {
                     question:
@@ -964,7 +960,7 @@ const Franchise = () => {
                     question:
                       "What ongoing fees will I need to pay as a franchisee?",
                     answer:
-                      "Franchisees pay a royalty fee of 5-7% of monthly revenue and a marketing contribution of 2% towards national marketing campaigns. These fees help maintain brand standards and drive customer traffic to all locations.",
+                      "Franchisees pay a royalty fee of 3-4% of monthly revenue and marketing contributions depending on sales as a part of national marketing campaigns. These fees help maintain brand standards and drive customer traffic to all locations.",
                   },
                   {
                     question:

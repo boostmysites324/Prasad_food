@@ -30,13 +30,7 @@ const Home = () => {
                   to="/contact"
                   className="bg-[#FF9933] hover:bg-[#e88a2a] text-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
                 >
-                  Contact Us Now!
-                </Link>
-                <Link
-                  to="/about"
-                  className="bg-transparent hover:bg-white/20 text-white border-2 border-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
-                >
-                  Learn More About Us
+                  Reserve a Table
                 </Link>
               </div>
             </div>
@@ -318,7 +312,7 @@ const Home = () => {
                       to="/about"
                       className="bg-[#FF9933] hover:bg-[#e88a2a] text-white px-6 py-2 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
                     >
-                      Learn More About Us
+                      Learn More
                     </Link>
                   </div>
                   <div

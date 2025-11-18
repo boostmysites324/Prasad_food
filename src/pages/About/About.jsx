@@ -24,9 +24,7 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-xl mb-8 max-w-lg">
-                Discover the journey of Prasad Food Divine, where tradition
-                meets innovation in creating authentic vegetarian culinary
-                experiences.
+                Discover about the journey of Prasad Food Divine, from a Chinese Street Cart to a Brand.
               </p>
               <button
                 onClick={() => {
@@ -50,22 +48,29 @@ const About = () => {
                     Our History
                   </h2>
                   <p className="text-gray-700 mb-4">
-                    Founded in 1995 by the Sharma family, Prasad Food Divine
-                    began as a small family-run establishment dedicated to
-                    preserving the authentic flavors of traditional Indian
-                    vegetarian cuisine.
+                    In 1996, at Tisgaon Naka in Kalyan East, a determined young man named Nilesh Suryavanshi began his journey with a simple Chinese food cart. With zero capital but unlimited dedication, he personally handled everything — from purchasing vegetables to serving customers.
                   </p>
                   <p className="text-gray-700 mb-4">
-                    What started as a modest 20-seat restaurant has now grown
-                    into one of the most respected vegetarian dining
-                    establishments in the country, serving over 500,000
-                    satisfied guests annually.
+                    Over time, his dedication and humble service began to win hearts. Customers started asking for more variety — and Nilesh, ever attentive to their needs, began expanding his menu beyond Chinese, slowly venturing into Indian, Tandoor, Continental, Pantry, and more.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    As demand grew, so did his ambition. He launched a modest bamboo-style restaurant — simple in design but rich in warmth and flavour. Its success led to the creation of something greater; Kalyan- Dombivli's first air-conditioned restaurant. A step that reshaped the dining experience in the city.
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Back then, Prasad was a non-vegetarian restaurant. But Nilesh's spiritual journey soon brought a turning point. After reading the sacred Bhagavad Gita, he gave up eating non-veg food himself. A powerful thought struck him: "If I won't consume it, how can I serve it to others?"
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    This powerful thought led him to take a bold and heartfelt decision — to make Prasad Food Divine a 100% pure vegetarian restaurant, reflecting both personal values and respect for purity in food.
                   </p>
                   <p className="text-gray-700 mb-6">
-                    Throughout our journey, we have remained true to our
-                    founding principles: using only the freshest ingredients,
-                    preparing food with devotion, and treating our guests as
-                    family.
+                    <strong>Why the Name "Prasad"?</strong><br/>
+                    For Nilesh, food was never just a business. He believed everything we eat is a 'Prasad' from God. Just like how offerings are first made to a deity and then shared with others, he saw every meal served as sacred.
+                  </p>
+                  <p className="text-gray-700 mb-6">
+                    And so, "Prasad Food Divine" was born, not just as a name, but as a philosophy. Every customer is seen as a form of God, and serving them good, clean, and nutritious food is the restaurant's greatest honour.
+                  </p>
+                  <p className="text-gray-700 mb-6">
+                    <strong>The Journey So Far</strong> — Prasad started with a small Chinese food cart and a big dream. Today, with 10 growing branches, Nilesh's journey is a story of hard work, growth, and belief in God.
                   </p>
                   <div className="bg-[#FFFDD0] p-6 rounded-lg border-l-4 border-[#800000] shadow-md">
                     <h3 className="text-xl font-serif text-[#800000] mb-3">
@@ -164,10 +169,7 @@ const About = () => {
                   Our Culinary Philosophy
                 </h2>
                 <p className="text-gray-700 max-w-3xl mx-auto">
-                  At Prasad Food Divine, we believe that vegetarian cuisine can
-                  be just as rich, diverse, and satisfying as any other. Our
-                  approach combines time-honored traditions with contemporary
-                  techniques.
+                  At Prasad Food Divine, we believe food is the Prasad of God — pure, sacred, and to be served with love.
                 </p>
               </div>
               <div className="flex flex-col md:flex-row gap-8 mb-12">
@@ -180,21 +182,10 @@ const About = () => {
                 </div>
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <p className="text-gray-700 mb-6">
-                    Our chefs are trained in both classical Indian cooking
-                    techniques and modern culinary arts, allowing them to create
-                    dishes that honor tradition while embracing innovation.
+                    We always focus on purity and quality, choosing the best ingredients and cooking with care. Our food is inspired by traditional recipes but also has a touch of new ideas to delight every guest.
                   </p>
                   <p className="text-gray-700 mb-6">
-                    We believe in the power of spices not just as flavor
-                    enhancers, but as elements that bring balance and wellness.
-                    Each spice blend is crafted in-house according to recipes
-                    that have been perfected over generations.
-                  </p>
-                  <p className="text-gray-700">
-                    Our commitment to vegetarian cuisine is rooted in the
-                    principles of compassion, sustainability, and the rich
-                    vegetarian traditions of India that date back thousands of
-                    years.
+                    For us, food is not just about taste. It is about care, respect, and happiness. Every plate we serve is made with sincerity so that our guests feel truly satisfied and connected.
                   </p>
                 </div>
               </div>
@@ -216,7 +207,7 @@ const About = () => {
                     icon: "fa-lightbulb",
                     title: "Modern Innovation",
                     description:
-                      "While honoring tradition, we embrace contemporary techniques and presentations to create unique culinary experiences.",
+                      "We keep our traditions alive but add a little newness to every dish. It's our way of keeping alive the taste you love.",
                   },
                 ].map((pillar, index) => (
                   <div
@@ -254,26 +245,26 @@ const About = () => {
                 {[
                   {
                     name: "Nilesh Suryavanshi",
-                    role: "CMD & Founder",
-                    bio: "With over 30 years of experience, Nilesh brings traditional family recipes and innovative techniques to create our signature dishes.",
+                    role: "Founder & CMD",
+                    bio: "With over 30 years of experience in the Restaurant Industry, Nilesh Suryavanshi laid the foundation of Prasad with a vision to serve best quality vegetarian food to customers.",
                     image: teamMembers.nilesh,
                   },
                   {
                     name: "Rahul Kumar",
                     role: "Senior Purchase Executive",
-                    bio: "A graduate of the Culinary Institute of India, Rahul specializes in sourcing the finest ingredients and maintaining quality standards.",
+                    bio: "Rahul oversees all purchases and vendor management at Prasad. Known for his strategic approach and cost control, he ensures that every ingredient meets the high-quality standards.",
                     image: teamMembers.rahul,
                   },
                   {
                     name: "Trayambakeshwar Shukla",
                     role: "Senior Restaurant Manager",
-                    bio: "Specializing in both traditional Indian sweets and fusion desserts, Trayambakeshwar brings artistry and innovation to our dessert menu.",
+                    bio: "Mr. Shukla leads the restaurant's daily operations, ensuring a seamless dining experience for every guest. His expertise in guest relations and team coordination helps Prasad maintain the warmth, service, and hospitality that define Prasad.",
                     image: teamMembers.trayambakeshwar,
                   },
                   {
                     name: "Gajendra Shah",
                     role: "Unit Chef",
-                    bio: "With a background in hospitality management, Gajendra ensures every guest receives an exceptional dining experience.",
+                    bio: "As the heart of our kitchen, Chef Gajendra ensures that the quality, taste, and purity of every dish are consistently maintained. An expert in Indian cuisine, he blends perfection with passion to create the signature flavors that Prasad is known for.",
                     image: teamMembers.gajendra,
                   },
                 ].map((member, index) => (
@@ -366,27 +357,17 @@ const About = () => {
                   recognized by critics, food enthusiasts, and industry experts.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="flex items-center justify-center gap-6">
                 {[
                   {
-                    year: "2023",
-                    award: "Best Vegetarian Restaurant",
-                    organization: "National Restaurant Awards",
+                    year: "2025",
+                    award: "The Best Vegetarian Restaurant of Powai Central Mumbai",
+                    organization: "Eazydiner FOODIE Awards",
                   },
                   {
-                    year: "2022",
-                    award: "Excellence in Culinary Innovation",
-                    organization: "Food & Beverage Association",
-                  },
-                  {
-                    year: "2021",
-                    award: "Outstanding Customer Service",
-                    organization: "Hospitality Excellence Awards",
-                  },
-                  {
-                    year: "2020",
-                    award: "Chef of the Year - Rajiv Sharma",
-                    organization: "Culinary Masters Guild",
+                    year: "2024",
+                    award: "Business Excellence award for outstanding achievement in hotel industry",
+                    organization: "By Uday Samant – Cabinet Minister of Ministry of Industries Maharashtra",
                   },
                 ].map((award, index) => (
                   <div

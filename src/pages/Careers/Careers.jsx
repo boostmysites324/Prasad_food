@@ -345,8 +345,7 @@ const Careers = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Health & Wellness</h3>
               <p className="text-gray-600">
-                Comprehensive medical coverage, dental, vision, and wellness
-                programs to keep you at your best.
+                Comprehensive medical coverage and wellness programs to keep you at your best.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
@@ -355,8 +354,7 @@ const Careers = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Work-Life Balance</h3>
               <p className="text-gray-600">
-                Flexible scheduling options, paid time off, and family leave to
-                help you maintain balance.
+                Paid time off, Medical, Casual and family leaves to help you maintain balance.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
@@ -365,8 +363,7 @@ const Careers = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Growth</h3>
               <p className="text-gray-600">
-                Professional development programs, tuition assistance, and clear
-                career advancement paths.
+                Professional development programs, Training assistance, and clear career advancement paths.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
@@ -375,8 +372,7 @@ const Careers = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Perks</h3>
               <p className="text-gray-600">
-                Employee meal discounts, team events, recognition programs, and
-                competitive compensation.
+                Employee meal discounts, team events, recognition programs, and many more.
               </p>
             </div>
           </div>

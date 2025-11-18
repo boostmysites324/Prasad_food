@@ -4,7 +4,7 @@ const Testimonials = () => {
     <div className="container mx-auto px-6">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-serif text-[#800000] mb-4">
-          What Our Guests Say
+          What Our Guests Say About Us
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
           Hear from our valued guests about their dining experience at Prasad
@@ -14,25 +14,25 @@ const Testimonials = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           {
-            name: "Priya Sharma",
-            role: "Food Blogger",
+            name: "Pranali Sawale",
+            role: "Guest",
             image:
               "https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20Indian%20woman%20in%20her%20early%2030s%20with%20a%20warm%20smile%20wearing%20elegant%20traditional%20attire%20against%20a%20simple%20neutral%20background%20that%20highlights%20her%20natural%20beauty%20and%20confidence&width=200&height=200&seq=9&orientation=squarish",
-            text: "The attention to detail in every dish is remarkable. The flavors are authentic and the presentation is modern. A perfect blend of tradition and innovation.",
+            text: "I've dined at Prasad Food Divine four times, and the food is always a perfect 10/10. The ambiance is great, making it a must-visit for vegetarians as it's a pure veg restaurant.",
           },
           {
-            name: "Rajesh Kumar",
-            role: "Business Executive",
+            name: "Lalit Sutar",
+            role: "Guest",
             image:
               "https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20Indian%20man%20in%20his%20mid%2040s%20wearing%20a%20business%20suit%20with%20a%20confident%20smile%20against%20a%20simple%20neutral%20background%20that%20conveys%20professionalism%20and%20trustworthiness&width=200&height=200&seq=10&orientation=squarish",
-            text: "Prasad Food Divine has become our go-to place for family celebrations. The ambiance is perfect and the service is impeccable.",
+            text: "I had a wonderful experience at Prasad Food Divine! The service was warm, attentive, and quick — the staff made sure we felt comfortable throughout our visit. The food was delicious too.",
           },
           {
-            name: "Sarah Williams",
-            role: "Food Critic",
+            name: "Darshana Chavan",
+            role: "Guest",
             image:
               "https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20woman%20in%20her%20late%2030s%20with%20a%20sophisticated%20look%20wearing%20modern%20professional%20attire%20against%20a%20simple%20neutral%20background%20that%20highlights%20her%20expertise%20and%20authority&width=200&height=200&seq=11&orientation=squarish",
-            text: "A vegetarian heaven! The innovative take on traditional Indian dishes is refreshing. Each visit is a new culinary adventure.",
+            text: "Had an amazing experience at Prasad Food Divine! The food was top-notch—every dish was bursting with flavour and served fresh. The ambiance is perfect for both families and friends, creating a comfortable and welcoming environment.",
           },
         ].map((testimonial, index) => (
           <div
