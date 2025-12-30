@@ -49,6 +49,30 @@ import restaurantImg6 from './images/about-us/Our-restaurent-img-6.jpeg';
 
 // Home Page
 import homePageImg1 from './images/Home Page Image 1.jpg';
+import homePageWelcomeImg from './Home-page/Besides Welcome to Prasad Food Divine (Home Page).jpg';
+
+// About Us - New Images
+import aboutUsImage1 from './About-us /About Us Image 1(Beside Our History).jpg';
+import aboutUsImage2 from './About-us /About Us Image 2 (Beside Our History).jpeg';
+import aboutUsImage3 from './About-us /About Us Image 3 (Beside Our History).jpeg';
+import aboutUsImage4 from './About-us /About Us Image 4 (Our Culinary Philosophy) .jpg';
+import aboutUsImage5 from './About-us /About Us Image 5 (Experience Our Divine Cuisine).jpg';
+
+// Franchise - Owner Images
+import franchiseOwnerShankar from './Franchise/Shankar Shetty (Franchise Owner).jpeg';
+import franchiseOwnerSunil from './Franchise/Sunil Chavan (Franchise Owner).jpeg';
+
+// Franchise Gallery
+import franchiseDombivli from './Franchise/Franchise Gallery/Dombivli Franchise.jpg';
+import franchisePowai from './Franchise/Franchise Gallery/Powai Franchise.jpg';
+import franchisePowai2 from './Franchise/Franchise Gallery/Powai Franchise (2).jpg';
+import franchisePune from './Franchise/Franchise Gallery/Pune Franchise.jpg';
+import franchiseVirar from './Franchise/Franchise Gallery/Virar Franchise.jpg';
+
+// Services
+import serviceOutdoorCatering from './Services/Out Door Catering.jpeg';
+import serviceResorts from './Services/Resorts Image.jpg';
+import serviceTiffins from './Services/Tiffins & Meal Boxes ( Services).jpg';
 
 export const galleryImages = {
   ambiance: [
@@ -94,4 +118,32 @@ export const restaurantImages = [
 ];
 
 export const homePageImage = homePageImg1;
+export const homePageWelcomeImage = homePageWelcomeImg;
+
+export const aboutUsImages = {
+  besideHistory1: aboutUsImage1,
+  besideHistory2: aboutUsImage2,
+  besideHistory3: aboutUsImage3,
+  culinaryPhilosophy: aboutUsImage4,
+  experienceDivineCuisine: aboutUsImage5
+};
+
+export const franchiseOwners = {
+  shankar: franchiseOwnerShankar,
+  sunil: franchiseOwnerSunil
+};
+
+export const franchiseGallery = {
+  dombivli: franchiseDombivli,
+  powai: franchisePowai,
+  powai2: franchisePowai2,
+  pune: franchisePune,
+  virar: franchiseVirar
+};
+
+export const serviceImages = {
+  outdoorCatering: serviceOutdoorCatering,
+  resorts: serviceResorts,
+  tiffins: serviceTiffins
+};
 

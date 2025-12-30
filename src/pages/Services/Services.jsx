@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
-
-// Import service images
+import { serviceImages } from "../../assets/imageImports";
 import servicesBgImg from "../../assets/images/services/services.jpeg";
 import banquetImg from "../../assets/images/gallery/ambiance/Banquets/01 Virar/DSC09255-HDR.jpg";
-import resortImg from "../../assets/images/gallery/ambiance/DSC01418-HDR.jpg";
-import cateringImg from "../../assets/images/gallery/events/Events 1.jpg";
-import tiffinImg from "../../assets/images/gallery/food/Veg Biryani.jpg";
 import takeawayImg from "../../assets/images/gallery/food/Kaju Masala.jpg";
 import reservationImg from "../../assets/images/gallery/ambiance/Interior/Thane/DSC03261-HDR.jpg";
 
@@ -35,7 +31,7 @@ const Services = () => {
         "Special occasion arrangements",
         "Scenic and relaxing environment"
       ],
-      image: resortImg,
+      image: serviceImages.resorts,
       icon: "fa-mountain",
       color: "from-green-50 to-green-100"
     },
@@ -49,7 +45,7 @@ const Services = () => {
         "Professional service staff",
         "Customized menu options"
       ],
-      image: cateringImg,
+      image: serviceImages.outdoorCatering,
       icon: "fa-truck",
       color: "from-blue-50 to-blue-100"
     },
@@ -63,7 +59,7 @@ const Services = () => {
         "Travel-friendly packaging",
         "Healthy and nutritious options"
       ],
-      image: tiffinImg,
+      image: serviceImages.tiffins,
       icon: "fa-box",
       color: "from-purple-50 to-purple-100"
     },

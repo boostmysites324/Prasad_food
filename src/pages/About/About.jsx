@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Testimonials from "../../components/Testimonials";
 import bannerImg from "../../assets/images/about-us-banner.webp";
-import { teamMembers, restaurantImages } from "../../assets/imageImports";
+import { teamMembers, restaurantImages, aboutUsImages } from "../../assets/imageImports";
 
 const About = () => {
   return (
@@ -87,21 +87,21 @@ const About = () => {
                 <div className="md:w-1/2 grid grid-cols-2 gap-4">
                   <div className="overflow-hidden rounded-lg shadow-md h-64">
                     <img
-                      src="https://readdy.ai/api/search-image?query=Vintage%2520photograph%2520of%2520an%2520Indian%2520family%2520restaurant%2520from%2520the%25201990s%252C%2520showing%2520the%2520original%2520small%2520establishment%2520with%2520traditional%2520decor%252C%2520the%2520founding%2520family%2520members%2520standing%2520proudly%2520at%2520the%2520entrance%252C%2520with%2520warm%2520lighting%2520and%2520a%2520simple%2520sign%2520board%2520displaying%2520the%2520restaurant%2520name%2520against%2520a%2520nostalgic%2520sepia-toned%2520background&width=400&height=500&seq=11&orientation=portrait"
-                      alt="Prasad Food Divine in 1995"
+                      src={aboutUsImages.besideHistory1}
+                      alt="Prasad Food Divine History"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
                   <div className="overflow-hidden rounded-lg shadow-md h-64">
                     <img
-                      src="https://readdy.ai/api/search-image?query=Professional%2520Indian%2520chef%2520in%2520traditional%2520white%2520uniform%2520and%2520toque%2520carefully%2520preparing%2520an%2520elaborate%2520vegetarian%2520dish%2520in%2520a%2520traditional%2520kitchen%2520with%2520copper%2520utensils%2520and%2520spice%2520containers%2520visible%2520in%2520the%2520background%252C%2520focused%2520expression%2520showing%2520dedication%2520to%2520culinary%2520craft%2520against%2520a%2520warm-toned%2520nostalgic%2520background&width=400&height=500&seq=12&orientation=portrait"
+                      src={aboutUsImages.besideHistory2}
                       alt="Our traditional cooking methods"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
                   <div className="overflow-hidden rounded-lg shadow-md h-64 col-span-2">
                     <img
-                      src="https://readdy.ai/api/search-image?query=Modern%2520elegant%2520Indian%2520restaurant%2520interior%2520showing%2520the%2520evolution%2520from%2520small%2520establishment%2520to%2520upscale%2520dining%2520venue%252C%2520with%2520beautiful%2520table%2520settings%252C%2520traditional%2520yet%2520contemporary%2520decor%252C%2520soft%2520ambient%2520lighting%252C%2520and%2520subtle%2520cultural%2520elements%2520integrated%2520into%2520the%2520sophisticated%2520design%2520against%2520a%2520warm%2520neutral%2520background&width=800&height=400&seq=13&orientation=landscape"
+                      src={aboutUsImages.besideHistory3}
                       alt="Prasad Food Divine today"
                       className="w-full h-full object-cover object-top"
                     />
@@ -175,8 +175,8 @@ const About = () => {
               <div className="flex flex-col md:flex-row gap-8 mb-12">
                 <div className="md:w-1/2 overflow-hidden rounded-lg shadow-md">
                   <img
-                    src="https://readdy.ai/api/search-image?query=Professional%2520Indian%2520chef%2520working%2520in%2520a%2520modern%2520kitchen%252C%2520carefully%2520arranging%2520and%2520garnishing%2520an%2520artistic%2520vegetarian%2520dish%2520with%2520colorful%2520ingredients%2520and%2520microgreens.%2520The%2520kitchen%2520features%2520state-of-the-art%2520equipment%2520alongside%2520traditional%2520spice%2520containers%2520and%2520cooking%2520utensils%252C%2520showing%2520the%2520blend%2520of%2520tradition%2520and%2520innovation%2520against%2520a%2520clean%2520neutral%2520background&width=700&height=500&seq=14&orientation=landscape"
-                    alt="Chef preparing traditional dish with modern techniques"
+                    src={aboutUsImages.culinaryPhilosophy}
+                    alt="Our Culinary Philosophy"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -425,7 +425,7 @@ const About = () => {
                   <div
                     className="md:w-1/3 bg-cover bg-center"
                     style={{
-                      backgroundImage: `url('https://readdy.ai/api/search-image?query=Elegant%2520arrangement%2520of%2520traditional%2520Indian%2520spices%2520in%2520small%2520copper%2520and%2520brass%2520bowls%252C%2520including%2520turmeric%252C%2520red%2520chili%252C%2520cumin%252C%2520coriander%252C%2520cardamom%252C%2520and%2520cinnamon%252C%2520artistically%2520displayed%2520with%2520fresh%2520herbs%2520and%2520subtle%2520lighting%2520highlighting%2520the%2520vibrant%2520colors%2520against%2520a%2520dark%2520textured%2520background&width=400&height=600&seq=24&orientation=portrait')`,
+                      backgroundImage: `url('${aboutUsImages.experienceDivineCuisine}')`,
                     }}
                   ></div>
                 </div>

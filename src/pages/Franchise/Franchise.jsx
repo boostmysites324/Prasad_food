@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { supabase, isSupabaseReady } from "../../lib/supabaseClient";
-import ownerImage from "../../assets/images/team/owner1.jpeg";
+import { franchiseOwners, franchiseGallery } from "../../assets/imageImports";
 
 const initialFranchiseFormState = {
   fullName: "",
@@ -20,7 +20,7 @@ const Franchise = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const testimonialImages = [ownerImage, ownerImage];
+  const testimonialImages = [franchiseOwners.shankar, franchiseOwners.sunil];
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -371,13 +371,7 @@ const Franchise = () => {
                 <div className="md:flex items-center">
                   <div className="md:w-1/3 mb-6 md:mb-0 flex justify-center">
                     <img
-                      src={
-                        [
-                          ownerImage,
-                          "https://readdy.ai/api/search-image?query=Professional%2520portrait%2520of%2520a%2520successful%2520Indian%2520businesswoman%2520in%2520her%252030s%2520wearing%2520elegant%2520business%2520attire%2520with%2520a%2520warm%2520confident%2520smile%2520against%2520a%2520neutral%2520background%2520that%2520conveys%2520professionalism%2520and%2520success%2520in%2520the%2520restaurant%2520franchise%2520industry&width=300&height=300&seq=3&orientation=squarish",
-                          "https://readdy.ai/api/search-image?query=Professional%2520portrait%2520of%2520a%2520successful%2520middle%2520aged%2520Indian%2520couple%2520in%2520business%2520casual%2520attire%2520with%2520friendly%2520confident%2520expressions%2520against%2520a%2520neutral%2520background%2520that%2520conveys%2520their%2520partnership%2520and%2520success%2520in%2520the%2520restaurant%2520franchise%2520business&width=300&height=300&seq=4&orientation=squarish",
-                        ][activeTestimonial]
-                      }
+                      src={testimonialImages[activeTestimonial]}
                       alt="Franchise Owner"
                       className="w-48 h-48 rounded-full object-cover border-4 border-white shadow-md"
                     />
@@ -462,34 +456,24 @@ const Franchise = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  image:
-                    "https://readdy.ai/api/search-image?query=Elegant%2520Indian%2520vegetarian%2520restaurant%2520interior%2520with%2520modern%2520design%2520elements%2520featuring%2520warm%2520lighting%2520comfortable%2520seating%2520and%2520branded%2520elements%2520showcasing%2520a%2520successful%2520franchise%2520location%2520with%2520customers%2520enjoying%2520their%2520dining%2520experience%2520in%2520a%2520sophisticated%2520atmosphere&width=600&height=400&seq=5&orientation=landscape",
-                  location: "Mumbai Franchise",
+                  image: franchiseGallery.virar,
+                  location: "Virar Franchise",
                 },
                 {
-                  image:
-                    "https://readdy.ai/api/search-image?query=Modern%2520Indian%2520restaurant%2520kitchen%2520with%2520professional%2520chefs%2520in%2520branded%2520uniforms%2520preparing%2520vegetarian%2520dishes%2520in%2520a%2520clean%2520well%2520organized%2520space%2520with%2520state%2520of%2520the%2520art%2520equipment%2520showcasing%2520the%2520operational%2520excellence%2520of%2520a%2520successful%2520restaurant%2520franchise&width=600&height=400&seq=6&orientation=landscape",
-                  location: "Bangalore Franchise",
+                  image: franchiseGallery.dombivli,
+                  location: "Dombivli Franchise",
                 },
                 {
-                  image:
-                    "https://readdy.ai/api/search-image?query=Beautifully%2520plated%2520Indian%2520vegetarian%2520dishes%2520arranged%2520on%2520an%2520elegant%2520restaurant%2520table%2520with%2520branded%2520elements%2520visible%2520showcasing%2520the%2520culinary%2520presentation%2520and%2520quality%2520of%2520food%2520at%2520a%2520successful%2520restaurant%2520franchise%2520location&width=600&height=400&seq=7&orientation=landscape",
-                  location: "Delhi Franchise",
-                },
-                {
-                  image:
-                    "https://readdy.ai/api/search-image?query=Restaurant%2520staff%2520in%2520branded%2520uniforms%2520providing%2520excellent%2520service%2520to%2520customers%2520in%2520an%2520elegant%2520Indian%2520restaurant%2520setting%2520with%2520warm%2520lighting%2520and%2520professional%2520atmosphere%2520demonstrating%2520the%2520service%2520standards%2520of%2520a%2520successful%2520franchise%2520operation&width=600&height=400&seq=8&orientation=landscape",
+                  image: franchiseGallery.pune,
                   location: "Pune Franchise",
                 },
                 {
-                  image:
-                    "https://readdy.ai/api/search-image?query=Exterior%2520view%2520of%2520a%2520modern%2520Indian%2520restaurant%2520with%2520elegant%2520signage%2520and%2520branding%2520elements%2520in%2520a%2520prime%2520commercial%2520location%2520with%2520customers%2520entering%2520showcasing%2520the%2520attractive%2520storefront%2520of%2520a%2520successful%2520restaurant%2520franchise&width=600&height=400&seq=9&orientation=landscape",
-                  location: "Hyderabad Franchise",
+                  image: franchiseGallery.powai,
+                  location: "Powai Franchise",
                 },
                 {
-                  image:
-                    "https://readdy.ai/api/search-image?query=Private%2520dining%2520area%2520in%2520an%2520upscale%2520Indian%2520restaurant%2520with%2520elegant%2520decor%2520traditional%2520elements%2520and%2520branded%2520touches%2520set%2520for%2520a%2520special%2520event%2520showcasing%2520the%2520versatility%2520and%2520premium%2520experience%2520offered%2520at%2520a%2520successful%2520restaurant%2520franchise&width=600&height=400&seq=10&orientation=landscape",
-                  location: "Chennai Franchise",
+                  image: franchiseGallery.powai2,
+                  location: "Powai Franchise",
                 },
               ].map((item, index) => (
                 <div

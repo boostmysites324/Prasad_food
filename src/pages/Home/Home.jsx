@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Testimonials from "../../components/Testimonials";
-import { signatureDishes, galleryImages as importedGalleryImages, homePageImage } from "../../assets/imageImports";
+import { signatureDishes, galleryImages as importedGalleryImages, homePageImage, homePageWelcomeImage } from "../../assets/imageImports";
 
 const Home = () => {
   return (
@@ -318,7 +318,7 @@ const Home = () => {
                   <div
                     className="md:w-1/2 bg-cover bg-center h-80 md:h-auto"
                     style={{
-                      backgroundImage: `url('https://readdy.ai/api/search-image?query=Traditional%20Indian%20vegetarian%20thali%20with%20various%20colorful%20dishes%20arranged%20on%20a%20silver%20platter%2C%20including%20rice%2C%20dal%2C%20vegetables%2C%20paneer%2C%20chutney%2C%20raita%2C%20and%20roti%2C%20beautifully%20presented%20with%20decorative%20elements%20against%20a%20simple%20neutral%20background%20that%20highlights%20the%20diverse%20flavors%20of%20Indian%20cuisine&width=600&height=600&seq=8&orientation=squarish')`,
+                      backgroundImage: `url('${homePageWelcomeImage}')`,
                     }}
                   ></div>
                 </div>
