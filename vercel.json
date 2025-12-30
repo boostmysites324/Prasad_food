@@ -1,7 +1,11 @@
 {
   "buildCommand": "npm run build",
   "installCommand": "npm install",
+  "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  ],
+  "env": {
+    "GIT_LFS_SKIP_SMUDGE": "0"
+  }
 }

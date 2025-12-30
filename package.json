@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "git lfs pull || echo 'Git LFS not available, continuing build...'",
+    "prebuild": "git lfs pull || (echo 'Warning: Git LFS pull failed. Images may not load correctly.' && exit 0)",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
