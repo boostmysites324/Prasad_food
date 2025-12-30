@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Testimonials from "../../components/Testimonials";
-import bannerImg from "../../assets/images/about-us-banner.webp";
+const bannerImg = "/images/about-us-banner.webp";
 import { teamMembers, restaurantImages, aboutUsImages } from "../../assets/imageImports";
 
 const About = () => {

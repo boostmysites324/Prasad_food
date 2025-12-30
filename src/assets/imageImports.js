@@ -124,7 +124,7 @@ import restaurantImg5 from './images/about-us/Our Restaurant Image 5- About Us.j
 import restaurantImg6 from './images/about-us/Our-restaurent-img-6.jpeg';
 
 // Home Page
-import homePageImg1 from './images/Home Page Image 1.jpg';
+const homePageImg1 = '/images/Home Page Image 1.jpg';
 const homePageWelcomeImg = '/images/Home-page/Besides Welcome to Prasad Food Divine (Home Page).jpg';
 
 // About Us - New Images (from public/images)

@@ -1,4 +1,5 @@
-import logo from "../assets/images/logo.png";
+// Logo from public folder
+const logo = "/logo.png";
 
 export { logo };
 

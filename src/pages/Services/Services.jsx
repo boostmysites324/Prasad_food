@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { serviceImages } from "../../assets/imageImports";
-import servicesBgImg from "../../assets/images/services/services.jpeg";
+const servicesBgImg = "/images/services/services.jpeg";
 const banquetImg = "/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09255-HDR.jpg";
 const takeawayImg = "/images/Gallery/Our Gallery/Food/Main Course/Kaju Masala.jpg";
 const reservationImg = "/images/Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03261-HDR.jpg";
