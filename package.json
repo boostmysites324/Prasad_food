@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "git lfs pull || echo 'Git LFS not available, continuing build...'",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
