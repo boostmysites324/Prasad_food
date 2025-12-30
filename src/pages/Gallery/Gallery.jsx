@@ -9,180 +9,124 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const lightboxRef = useRef(null);
 
-  // Gallery data
-  const galleryImages = [
-    // Ambiance Images
-    {
-      id: 1,
-      src: importedImages.ambiance[0],
-      title: "Elegant Dining Hall - Virar",
-      category: "ambiance",
-      date: "2025-05-15",
-      tags: ["Interior", "Seating", "Decor"],
-    },
-    {
-      id: 2,
-      src: importedImages.ambiance[1],
-      title: "Luxurious Banquet Hall - Badlapur",
-      category: "ambiance",
-      date: "2025-05-20",
-      tags: ["Banquet", "Elegant", "Dining"],
-    },
-    {
-      id: 3,
-      src: importedImages.ambiance[2],
-      title: "Modern Interior - Kalyan West",
-      category: "ambiance",
-      date: "2025-05-25",
-      tags: ["Modern", "Interior", "Design"],
-    },
-    {
-      id: 4,
-      src: importedImages.ambiance[3],
-      title: "Sophisticated Dining - Kalyan East",
-      category: "ambiance",
-      date: "2025-05-30",
-      tags: ["Sophisticated", "Dining", "Elegant"],
-    },
-    {
-      id: 5,
-      src: importedImages.ambiance[4],
-      title: "Premium Banquet - Dombivali",
-      category: "ambiance",
-      date: "2025-06-05",
-      tags: ["Premium", "Banquet", "Luxury"],
-    },
-    {
-      id: 6,
-      src: importedImages.ambiance[5],
-      title: "Upscale Dining - Thane",
-      category: "ambiance",
-      date: "2025-06-10",
-      tags: ["Upscale", "Dining", "Premium"],
-    },
-    {
-      id: 7,
-      src: importedImages.ambiance[6],
-      title: "Elegant Interior - Mulund",
-      category: "ambiance",
-      date: "2025-06-15",
-      tags: ["Elegant", "Interior", "Design"],
-    },
-    {
-      id: 8,
-      src: importedImages.ambiance[7],
-      title: "Luxury Banquet - Powai",
-      category: "ambiance",
-      date: "2025-06-20",
-      tags: ["Luxury", "Banquet", "Elegant"],
-    },
-    // Food Images
-    {
-      id: 9,
-      src: importedImages.food.paneerAngara,
-      title: "Paneer Angara",
-      category: "food",
-      date: "2025-06-01",
-      tags: ["Paneer", "Main Course", "Spicy"],
-    },
-    {
-      id: 10,
-      src: importedImages.food.kajuMasala,
-      title: "Kaju Masala",
-      category: "food",
-      date: "2025-06-02",
-      tags: ["Cashew", "Curry", "Rich"],
-    },
-    {
-      id: 11,
-      src: importedImages.food.vegBiryani,
-      title: "Vegetable Biryani",
-      category: "food",
-      date: "2025-06-03",
-      tags: ["Biryani", "Rice", "Aromatic"],
-    },
-    {
-      id: 12,
-      src: importedImages.food.sizzlingBrownie,
-      title: "Sizzling Brownie",
-      category: "food",
-      date: "2025-06-04",
-      tags: ["Dessert", "Chocolate", "Hot"],
-    },
-    {
-      id: 13,
-      src: importedImages.food.strawberryPinaColada,
-      title: "Strawberry Pina Colada",
-      category: "food",
-      date: "2025-06-05",
-      tags: ["Drink", "Mocktail", "Refreshing"],
-    },
-    {
-      id: 14,
-      src: importedImages.food.cheeseCornBall,
-      title: "Cheese Corn Ball",
-      category: "food",
-      date: "2025-06-06",
-      tags: ["Appetizer", "Cheese", "Crispy"],
-    },
-    {
-      id: 15,
-      src: importedImages.food.bbqPizza,
-      title: "BBQ Pizza",
-      category: "food",
-      date: "2025-06-07",
-      tags: ["Pizza", "BBQ", "Italian"],
-    },
-    {
-      id: 16,
-      src: importedImages.food.biscoffCheeseCake,
-      title: "Biscoff Cheese Cake",
-      category: "food",
-      date: "2025-06-08",
-      tags: ["Dessert", "Cheesecake", "Biscoff"],
-    },
-    // Events Images
-    {
-      id: 17,
-      src: importedImages.events[0],
-      title: "Corporate Event",
-      category: "events",
-      date: "2025-04-20",
-      tags: ["Corporate", "Business", "Event"],
-    },
-    {
-      id: 18,
-      src: importedImages.events[1],
-      title: "Wedding Celebration",
-      category: "events",
-      date: "2025-04-25",
-      tags: ["Wedding", "Celebration", "Festive"],
-    },
-    {
-      id: 19,
-      src: importedImages.events[2],
-      title: "Festival Special",
-      category: "events",
-      date: "2025-04-30",
-      tags: ["Festival", "Special", "Traditional"],
-    },
-    {
-      id: 20,
-      src: importedImages.events[3],
-      title: "Private Party",
-      category: "events",
-      date: "2025-05-05",
-      tags: ["Private", "Party", "Exclusive"],
-    },
-    {
-      id: 21,
-      src: importedImages.events[4],
-      title: "Cultural Event",
-      category: "events",
-      date: "2025-05-10",
-      tags: ["Cultural", "Traditional", "Event"],
-    },
-  ];
+  // Build gallery images from the new structure
+  const buildGalleryImages = () => {
+    let id = 1;
+    const images = [];
+
+    // Ambiance - Banquets
+    Object.keys(importedImages.ambiance.banquets).forEach((location) => {
+      importedImages.ambiance.banquets[location].forEach((img) => {
+        images.push({
+          id: id++,
+          src: img.src,
+          title: `Banquet Hall - ${img.location}`,
+          category: "ambiance",
+          subcategory: "banquets",
+          location: img.location,
+          date: "2025-01-01",
+          tags: ["Banquet", img.location, "Elegant", "Dining"],
+        });
+      });
+    });
+
+    // Ambiance - Interior
+    Object.keys(importedImages.ambiance.interior).forEach((location) => {
+      importedImages.ambiance.interior[location].forEach((img) => {
+        images.push({
+          id: id++,
+          src: img.src,
+          title: `Interior - ${img.location}`,
+          category: "ambiance",
+          subcategory: "interior",
+          location: img.location,
+          date: "2025-01-01",
+          tags: ["Interior", img.location, "Design", "Modern"],
+        });
+      });
+    });
+
+    // Food - Deserts
+    importedImages.food.deserts.forEach((item) => {
+      images.push({
+        id: id++,
+        src: item.src,
+        title: item.title,
+        category: "food",
+        subcategory: "deserts",
+        date: "2025-01-01",
+        tags: ["Dessert", item.title, "Sweet"],
+      });
+    });
+
+    // Food - Drinks
+    importedImages.food.drinks.forEach((item) => {
+      images.push({
+        id: id++,
+        src: item.src,
+        title: item.title,
+        category: "food",
+        subcategory: "drinks",
+        date: "2025-01-01",
+        tags: ["Drink", item.title, "Refreshing"],
+      });
+    });
+
+    // Food - Main Course
+    importedImages.food.mainCourse.forEach((item) => {
+      images.push({
+        id: id++,
+        src: item.src,
+        title: item.title,
+        category: "food",
+        subcategory: "mainCourse",
+        date: "2025-01-01",
+        tags: ["Main Course", item.title, "Vegetarian"],
+      });
+    });
+
+    // Food - Paneer
+    importedImages.food.paneer.forEach((item) => {
+      images.push({
+        id: id++,
+        src: item.src,
+        title: item.title,
+        category: "food",
+        subcategory: "paneer",
+        date: "2025-01-01",
+        tags: ["Paneer", item.title, "Vegetarian"],
+      });
+    });
+
+    // Food - Signature Dishes
+    importedImages.food.signatureDishes.forEach((item) => {
+      images.push({
+        id: id++,
+        src: item.src,
+        title: item.title,
+        category: "food",
+        subcategory: "signatureDishes",
+        date: "2025-01-01",
+        tags: ["Signature", item.title, "Special"],
+      });
+    });
+
+    // Events
+    importedImages.events.forEach((item) => {
+      images.push({
+        id: id++,
+        src: item.src,
+        title: item.title,
+        category: "events",
+        date: "2025-01-01",
+        tags: ["Event", item.title, "Celebration"],
+      });
+    });
+
+    return images;
+  };
+
+  const galleryImages = buildGalleryImages();
   // Filter images based on category and search query
   const filteredImages = galleryImages
     .filter((image) => {
@@ -445,11 +389,23 @@ const Gallery = () => {
                         <div className="absolute top-4 left-4 bg-[#800000]/80 text-white px-3 py-1 rounded-full text-xs uppercase">
                           {image.category}
                         </div>
+                        {image.location && (
+                          <div className="absolute top-4 right-4 bg-[#FF9933]/90 text-white px-3 py-1 rounded-full text-xs font-medium">
+                            <i className="fas fa-map-marker-alt mr-1"></i>
+                            {image.location}
+                          </div>
+                        )}
                       </div>
                       <div className="p-4">
                         <h3 className="text-lg font-serif text-[#800000] mb-2">
                           {image.title}
                         </h3>
+                        {image.location && (
+                          <p className="text-sm text-[#FF9933] mb-1">
+                            <i className="fas fa-map-marker-alt mr-1"></i>
+                            {image.location}
+                          </p>
+                        )}
                         {/* <div className="flex flex-wrap gap-2 mt-2">
                           {image.tags.map((tag, idx) => (
                             <span
@@ -602,14 +558,22 @@ const Gallery = () => {
                   {selectedImage.title}
                 </h3>
                 <p className="text-gray-500 mb-4">
-                  <span className="capitalize">{selectedImage.category}</span> •
-                  <span className="ml-2">
-                    {new Date(selectedImage.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </span>
+                  <span className="capitalize">{selectedImage.category}</span>
+                  {selectedImage.subcategory && (
+                    <>
+                      {" • "}
+                      <span className="capitalize">{selectedImage.subcategory}</span>
+                    </>
+                  )}
+                  {selectedImage.location && (
+                    <>
+                      {" • "}
+                      <span className="text-[#FF9933] font-medium">
+                        <i className="fas fa-map-marker-alt mr-1"></i>
+                        {selectedImage.location}
+                      </span>
+                    </>
+                  )}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {selectedImage.tags.map((tag, idx) => (
