@@ -1,107 +1,107 @@
-// Gallery - Ambiance Banquets (from Our Gallery)
+// Gallery - Ambiance Banquets (from public/images)
 // Virar Banquets
-import banquetVirar1 from './Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09255-HDR.jpg';
-import banquetVirar2 from './Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09261-HDR.jpg';
-import banquetVirar3 from './Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09285-HDR.jpg';
-import banquetVirar4 from './Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09290-HDR.jpg';
+const banquetVirar1 = '/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09255-HDR.jpg';
+const banquetVirar2 = '/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09261-HDR.jpg';
+const banquetVirar3 = '/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09285-HDR.jpg';
+const banquetVirar4 = '/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09290-HDR.jpg';
 // Badlapur Banquets
-import banquetBadlapur1 from './Gallery/Our Gallery/Ambiance/Banquets/02 Badlapur/DSC01522-HDR.jpg';
-import banquetBadlapur2 from './Gallery/Our Gallery/Ambiance/Banquets/02 Badlapur/DSC01541-HDR.jpg';
+const banquetBadlapur1 = '/images/Gallery/Our Gallery/Ambiance/Banquets/02 Badlapur/DSC01522-HDR.jpg';
+const banquetBadlapur2 = '/images/Gallery/Our Gallery/Ambiance/Banquets/02 Badlapur/DSC01541-HDR.jpg';
 // Kalyan West Banquets
-import banquetKalyanWest1 from './Gallery/Our Gallery/Ambiance/Banquets/03 Kalyan west/DSC01786-HDR.jpg';
-import banquetKalyanWest2 from './Gallery/Our Gallery/Ambiance/Banquets/03 Kalyan west/DSC01797-HDR.jpg';
-import banquetKalyanWest3 from './Gallery/Our Gallery/Ambiance/Banquets/03 Kalyan west/DSC01807-HDR.jpg';
+const banquetKalyanWest1 = '/images/Gallery/Our Gallery/Ambiance/Banquets/03 Kalyan west/DSC01786-HDR.jpg';
+const banquetKalyanWest2 = '/images/Gallery/Our Gallery/Ambiance/Banquets/03 Kalyan west/DSC01797-HDR.jpg';
+const banquetKalyanWest3 = '/images/Gallery/Our Gallery/Ambiance/Banquets/03 Kalyan west/DSC01807-HDR.jpg';
 // Kalyan East Banquets
-import banquetKalyanEast1 from './Gallery/Our Gallery/Ambiance/Banquets/04 Kalyan East/DSC01870-HDR.jpg';
-import banquetKalyanEast2 from './Gallery/Our Gallery/Ambiance/Banquets/04 Kalyan East/DSC01873-HDR.jpg';
+const banquetKalyanEast1 = '/images/Gallery/Our Gallery/Ambiance/Banquets/04 Kalyan East/DSC01870-HDR.jpg';
+const banquetKalyanEast2 = '/images/Gallery/Our Gallery/Ambiance/Banquets/04 Kalyan East/DSC01873-HDR.jpg';
 // Dombivali Banquets
-import banquetDombivali1 from './Gallery/Our Gallery/Ambiance/Banquets/05 Dombivali/DSC02011-HDR.jpg';
-import banquetDombivali2 from './Gallery/Our Gallery/Ambiance/Banquets/05 Dombivali/DSC02017-HDR.jpg';
-import banquetDombivali3 from './Gallery/Our Gallery/Ambiance/Banquets/05 Dombivali/DSC02023-HDR.jpg';
+const banquetDombivali1 = '/images/Gallery/Our Gallery/Ambiance/Banquets/05 Dombivali/DSC02011-HDR.jpg';
+const banquetDombivali2 = '/images/Gallery/Our Gallery/Ambiance/Banquets/05 Dombivali/DSC02017-HDR.jpg';
+const banquetDombivali3 = '/images/Gallery/Our Gallery/Ambiance/Banquets/05 Dombivali/DSC02023-HDR.jpg';
 // Thane Banquets
-import banquetThane1 from './Gallery/Our Gallery/Ambiance/Banquets/06 Thane/DSC03421-HDR.jpg';
-import banquetThane2 from './Gallery/Our Gallery/Ambiance/Banquets/06 Thane/DSC03424-HDR.jpg';
-import banquetThane3 from './Gallery/Our Gallery/Ambiance/Banquets/06 Thane/DSC03436-HDR.jpg';
+const banquetThane1 = '/images/Gallery/Our Gallery/Ambiance/Banquets/06 Thane/DSC03421-HDR.jpg';
+const banquetThane2 = '/images/Gallery/Our Gallery/Ambiance/Banquets/06 Thane/DSC03424-HDR.jpg';
+const banquetThane3 = '/images/Gallery/Our Gallery/Ambiance/Banquets/06 Thane/DSC03436-HDR.jpg';
 // Mulund Banquets
-import banquetMulund1 from './Gallery/Our Gallery/Ambiance/Banquets/07 Mulund/DSC03559-HDR.jpg';
-import banquetMulund2 from './Gallery/Our Gallery/Ambiance/Banquets/07 Mulund/DSC03562-HDR.jpg';
-import banquetMulund3 from './Gallery/Our Gallery/Ambiance/Banquets/07 Mulund/DSC03574-HDR.jpg';
+const banquetMulund1 = '/images/Gallery/Our Gallery/Ambiance/Banquets/07 Mulund/DSC03559-HDR.jpg';
+const banquetMulund2 = '/images/Gallery/Our Gallery/Ambiance/Banquets/07 Mulund/DSC03562-HDR.jpg';
+const banquetMulund3 = '/images/Gallery/Our Gallery/Ambiance/Banquets/07 Mulund/DSC03574-HDR.jpg';
 // Powai Banquets
-import banquetPowai1 from './Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03803-HDR.jpg';
-import banquetPowai2 from './Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03808-HDR.jpg';
-import banquetPowai3 from './Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03813-HDR.jpg';
-import banquetPowai4 from './Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03823-HDR.jpg';
-import banquetPowai5 from './Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03828-HDR.jpg';
+const banquetPowai1 = '/images/Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03803-HDR.jpg';
+const banquetPowai2 = '/images/Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03808-HDR.jpg';
+const banquetPowai3 = '/images/Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03813-HDR.jpg';
+const banquetPowai4 = '/images/Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03823-HDR.jpg';
+const banquetPowai5 = '/images/Gallery/Our Gallery/Ambiance/Banquets/08 Powai/DSC03828-HDR.jpg';
 
-// Gallery - Ambiance Interior (from Our Gallery)
+// Gallery - Ambiance Interior (from public/images)
 // Badlapur Interior
-import interiorBadlapur1 from './Gallery/Our Gallery/Ambiance/Interior/Badlapur/DSC01418-HDR.jpg';
-import interiorBadlapur2 from './Gallery/Our Gallery/Ambiance/Interior/Badlapur/DSC01445-HDR.jpg';
-import interiorBadlapur3 from './Gallery/Our Gallery/Ambiance/Interior/Badlapur/DSC01479-HDR.jpg';
+const interiorBadlapur1 = '/images/Gallery/Our Gallery/Ambiance/Interior/Badlapur/DSC01418-HDR.jpg';
+const interiorBadlapur2 = '/images/Gallery/Our Gallery/Ambiance/Interior/Badlapur/DSC01445-HDR.jpg';
+const interiorBadlapur3 = '/images/Gallery/Our Gallery/Ambiance/Interior/Badlapur/DSC01479-HDR.jpg';
 // Dombivli Interior
-import interiorDombivli1 from './Gallery/Our Gallery/Ambiance/Interior/Dombivli/DSC01915-HDR.jpg';
-import interiorDombivli2 from './Gallery/Our Gallery/Ambiance/Interior/Dombivli/DSC01955-HDR.jpg';
-import interiorDombivli3 from './Gallery/Our Gallery/Ambiance/Interior/Dombivli/DSC01988-HDR.jpg';
-import interiorDombivli4 from './Gallery/Our Gallery/Ambiance/Interior/Dombivli/DSC01996-HDR.jpg';
+const interiorDombivli1 = '/images/Gallery/Our Gallery/Ambiance/Interior/Dombivli/DSC01915-HDR.jpg';
+const interiorDombivli2 = '/images/Gallery/Our Gallery/Ambiance/Interior/Dombivli/DSC01955-HDR.jpg';
+const interiorDombivli3 = '/images/Gallery/Our Gallery/Ambiance/Interior/Dombivli/DSC01988-HDR.jpg';
+const interiorDombivli4 = '/images/Gallery/Our Gallery/Ambiance/Interior/Dombivli/DSC01996-HDR.jpg';
 // Kalyan East Interior
-import interiorKalyanEast1 from './Gallery/Our Gallery/Ambiance/Interior/Kalyan East/DSC01847-HDR.jpg';
-import interiorKalyanEast2 from './Gallery/Our Gallery/Ambiance/Interior/Kalyan East/DSC01857-HDR-2.jpg';
-import interiorKalyanEast3 from './Gallery/Our Gallery/Ambiance/Interior/Kalyan East/DSC01890-HDR.jpg';
-import interiorKalyanEast4 from './Gallery/Our Gallery/Ambiance/Interior/Kalyan East/DSC01895-HDR.jpg';
+const interiorKalyanEast1 = '/images/Gallery/Our Gallery/Ambiance/Interior/Kalyan East/DSC01847-HDR.jpg';
+const interiorKalyanEast2 = '/images/Gallery/Our Gallery/Ambiance/Interior/Kalyan East/DSC01857-HDR-2.jpg';
+const interiorKalyanEast3 = '/images/Gallery/Our Gallery/Ambiance/Interior/Kalyan East/DSC01890-HDR.jpg';
+const interiorKalyanEast4 = '/images/Gallery/Our Gallery/Ambiance/Interior/Kalyan East/DSC01895-HDR.jpg';
 // Kalyan West Interior
-import interiorKalyanWest1 from './Gallery/Our Gallery/Ambiance/Interior/Kalyan West/DSC01602-HDR-2.jpg';
-import interiorKalyanWest2 from './Gallery/Our Gallery/Ambiance/Interior/Kalyan West/DSC01607-HDR.jpg';
-import interiorKalyanWest3 from './Gallery/Our Gallery/Ambiance/Interior/Kalyan West/DSC01647-HDR.jpg';
-import interiorKalyanWest4 from './Gallery/Our Gallery/Ambiance/Interior/Kalyan West/DSC01722-HDR.jpg';
+const interiorKalyanWest1 = '/images/Gallery/Our Gallery/Ambiance/Interior/Kalyan West/DSC01602-HDR-2.jpg';
+const interiorKalyanWest2 = '/images/Gallery/Our Gallery/Ambiance/Interior/Kalyan West/DSC01607-HDR.jpg';
+const interiorKalyanWest3 = '/images/Gallery/Our Gallery/Ambiance/Interior/Kalyan West/DSC01647-HDR.jpg';
+const interiorKalyanWest4 = '/images/Gallery/Our Gallery/Ambiance/Interior/Kalyan West/DSC01722-HDR.jpg';
 // Mulund Interior
-import interiorMulund1 from './Gallery/Our Gallery/Ambiance/Interior/Mulund/DSC03491-HDR.jpg';
-import interiorMulund2 from './Gallery/Our Gallery/Ambiance/Interior/Mulund/DSC03499-HDR.jpg';
-import interiorMulund3 from './Gallery/Our Gallery/Ambiance/Interior/Mulund/DSC03505-HDR.jpg';
+const interiorMulund1 = '/images/Gallery/Our Gallery/Ambiance/Interior/Mulund/DSC03491-HDR.jpg';
+const interiorMulund2 = '/images/Gallery/Our Gallery/Ambiance/Interior/Mulund/DSC03499-HDR.jpg';
+const interiorMulund3 = '/images/Gallery/Our Gallery/Ambiance/Interior/Mulund/DSC03505-HDR.jpg';
 // Powai Interior
-import interiorPowai1 from './Gallery/Our Gallery/Ambiance/Interior/Powai/DSC03618-HDR-2.jpg';
-import interiorPowai2 from './Gallery/Our Gallery/Ambiance/Interior/Powai/DSC03628-HDR.jpg';
-import interiorPowai3 from './Gallery/Our Gallery/Ambiance/Interior/Powai/DSC03633-HDR.jpg';
-import interiorPowai4 from './Gallery/Our Gallery/Ambiance/Interior/Powai/DSC03648-HDR.jpg';
+const interiorPowai1 = '/images/Gallery/Our Gallery/Ambiance/Interior/Powai/DSC03618-HDR-2.jpg';
+const interiorPowai2 = '/images/Gallery/Our Gallery/Ambiance/Interior/Powai/DSC03628-HDR.jpg';
+const interiorPowai3 = '/images/Gallery/Our Gallery/Ambiance/Interior/Powai/DSC03633-HDR.jpg';
+const interiorPowai4 = '/images/Gallery/Our Gallery/Ambiance/Interior/Powai/DSC03648-HDR.jpg';
 // Thane Interior
-import interiorThane1 from './Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03261-HDR.jpg';
-import interiorThane2 from './Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03288-HDR.jpg';
-import interiorThane3 from './Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03320-HDR.jpg';
-import interiorThane4 from './Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03340-HDR.jpg';
+const interiorThane1 = '/images/Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03261-HDR.jpg';
+const interiorThane2 = '/images/Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03288-HDR.jpg';
+const interiorThane3 = '/images/Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03320-HDR.jpg';
+const interiorThane4 = '/images/Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03340-HDR.jpg';
 // Virar Interior
-import interiorVirar1 from './Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08913-HDR.jpg';
-import interiorVirar2 from './Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08987-HDR.jpg';
-import interiorVirar3 from './Gallery/Our Gallery/Ambiance/Interior/Virar/DSC09143-HDR.jpg';
+const interiorVirar1 = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08913-HDR.jpg';
+const interiorVirar2 = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08987-HDR.jpg';
+const interiorVirar3 = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC09143-HDR.jpg';
 
-// Gallery - Events (from Our Gallery)
-import eventBirthdayParty from './Gallery/Our Gallery/Events/Birthday Party.jpg';
-import eventCorporate from './Gallery/Our Gallery/Events/Corporate Event.jpg';
-import eventPrivateParty from './Gallery/Our Gallery/Events/Private Party.jpg';
+// Gallery - Events (from public/images)
+const eventBirthdayParty = '/images/Gallery/Our Gallery/Events/Birthday Party.jpg';
+const eventCorporate = '/images/Gallery/Our Gallery/Events/Corporate Event.jpg';
+const eventPrivateParty = '/images/Gallery/Our Gallery/Events/Private Party.jpg';
 
-// Gallery - Food (from Our Gallery)
+// Gallery - Food (from public/images)
 // Deserts
-import foodBiscoffCheeseCake from './Gallery/Our Gallery/Food/Deserts/Biscoff Cheese cake.jpg';
-import foodSizzlingBrownie from './Gallery/Our Gallery/Food/Deserts/Sizzling Brownie.jpg';
+const foodBiscoffCheeseCake = '/images/Gallery/Our Gallery/Food/Deserts/Biscoff Cheese cake.jpg';
+const foodSizzlingBrownie = '/images/Gallery/Our Gallery/Food/Deserts/Sizzling Brownie.jpg';
 // Drinks
-import foodStrawberryPinaColada from './Gallery/Our Gallery/Food/Drinks/Strawberry Pina Colada.jpg';
+const foodStrawberryPinaColada = '/images/Gallery/Our Gallery/Food/Drinks/Strawberry Pina Colada.jpg';
 // Main Course
-import foodBbqPizza from './Gallery/Our Gallery/Food/Main Course/Bbq Pizza.jpg';
-import foodKajuMasala from './Gallery/Our Gallery/Food/Main Course/Kaju Masala.jpg';
-import foodSabziFiringi from './Gallery/Our Gallery/Food/Main Course/Sabzi Firingi.jpg';
-import foodVegBiryani from './Gallery/Our Gallery/Food/Main Course/Veg Biryani.jpg';
+const foodBbqPizza = '/images/Gallery/Our Gallery/Food/Main Course/Bbq Pizza.jpg';
+const foodKajuMasala = '/images/Gallery/Our Gallery/Food/Main Course/Kaju Masala.jpg';
+const foodSabziFiringi = '/images/Gallery/Our Gallery/Food/Main Course/Sabzi Firingi.jpg';
+const foodVegBiryani = '/images/Gallery/Our Gallery/Food/Main Course/Veg Biryani.jpg';
 // Paneer
-import foodPaneerAngara from './Gallery/Our Gallery/Food/Paneer/Paneer Angara.jpg';
-import foodPaneerChatatakedar from './Gallery/Our Gallery/Food/Paneer/Paneer Chatatakedar.jpg';
-import foodPaneerChilly from './Gallery/Our Gallery/Food/Paneer/Paneer Chilly .jpg';
-import foodPaneerLababdar from './Gallery/Our Gallery/Food/Paneer/Paneer Lababdar.jpg';
+const foodPaneerAngara = '/images/Gallery/Our Gallery/Food/Paneer/Paneer Angara.jpg';
+const foodPaneerChatatakedar = '/images/Gallery/Our Gallery/Food/Paneer/Paneer Chatatakedar.jpg';
+const foodPaneerChilly = '/images/Gallery/Our Gallery/Food/Paneer/Paneer Chilly .jpg';
+const foodPaneerLababdar = '/images/Gallery/Our Gallery/Food/Paneer/Paneer Lababdar.jpg';
 // Signature Dishes
-import foodSignatureCheeseCornBall from './Gallery/Our Gallery/Food/Signature Dishes/Cheese Corn Ball.jpg';
-import foodSignatureKajuMasala from './Gallery/Our Gallery/Food/Signature Dishes/Kaju Masala.jpg';
-import foodSignatureMixGrilledFinger from './Gallery/Our Gallery/Food/Signature Dishes/Mix Grilled Finger.jpg';
-import foodSignatureSizzlingBrownie from './Gallery/Our Gallery/Food/Signature Dishes/Sizzling Brownie.jpg';
-import foodSignatureStrawberryPinaColada from './Gallery/Our Gallery/Food/Signature Dishes/Strawberry Pina Colada.jpg';
-import foodSignatureVegBiryani from './Gallery/Our Gallery/Food/Signature Dishes/Veg Biryani.jpg';
+const foodSignatureCheeseCornBall = '/images/Gallery/Our Gallery/Food/Signature Dishes/Cheese Corn Ball.jpg';
+const foodSignatureKajuMasala = '/images/Gallery/Our Gallery/Food/Signature Dishes/Kaju Masala.jpg';
+const foodSignatureMixGrilledFinger = '/images/Gallery/Our Gallery/Food/Signature Dishes/Mix Grilled Finger.jpg';
+const foodSignatureSizzlingBrownie = '/images/Gallery/Our Gallery/Food/Signature Dishes/Sizzling Brownie.jpg';
+const foodSignatureStrawberryPinaColada = '/images/Gallery/Our Gallery/Food/Signature Dishes/Strawberry Pina Colada.jpg';
+const foodSignatureVegBiryani = '/images/Gallery/Our Gallery/Food/Signature Dishes/Veg Biryani.jpg';
 
-// Signature Dishes
+// Signature Dishes (keep existing from images folder)
 import signatureCheeseCornBall from './images/signature-dishes/Cheese Corn Ball.jpg';
 import signatureKajuMasala from './images/signature-dishes/Kaju Masala.jpg';
 import signatureMixGrilledFinger from './images/signature-dishes/Mix Grilled Finger.jpg';
@@ -125,30 +125,30 @@ import restaurantImg6 from './images/about-us/Our-restaurent-img-6.jpeg';
 
 // Home Page
 import homePageImg1 from './images/Home Page Image 1.jpg';
-import homePageWelcomeImg from './Home-page/Besides Welcome to Prasad Food Divine (Home Page).jpg';
+const homePageWelcomeImg = '/images/Home-page/Besides Welcome to Prasad Food Divine (Home Page).jpg';
 
-// About Us - New Images
-import aboutUsImage1 from './About-us /About Us Image 1(Beside Our History).jpg';
-import aboutUsImage2 from './About-us /About Us Image 2 (Beside Our History).jpeg';
-import aboutUsImage3 from './About-us /About Us Image 3 (Beside Our History).jpeg';
-import aboutUsImage4 from './About-us /About Us Image 4 (Our Culinary Philosophy) .jpg';
-import aboutUsImage5 from './About-us /About Us Image 5 (Experience Our Divine Cuisine).jpg';
+// About Us - New Images (from public/images)
+const aboutUsImage1 = '/images/About-us/About Us Image 1(Beside Our History).jpg';
+const aboutUsImage2 = '/images/About-us/About Us Image 2 (Beside Our History).jpeg';
+const aboutUsImage3 = '/images/About-us/About Us Image 3 (Beside Our History).jpeg';
+const aboutUsImage4 = '/images/About-us/About Us Image 4 (Our Culinary Philosophy) .jpg';
+const aboutUsImage5 = '/images/About-us/About Us Image 5 (Experience Our Divine Cuisine).jpg';
 
-// Franchise - Owner Images
-import franchiseOwnerShankar from './Franchise/Shankar Shetty (Franchise Owner).jpeg';
-import franchiseOwnerSunil from './Franchise/Sunil Chavan (Franchise Owner).jpeg';
+// Franchise - Owner Images (from public/images)
+const franchiseOwnerShankar = '/images/Franchise/Shankar Shetty (Franchise Owner).jpeg';
+const franchiseOwnerSunil = '/images/Franchise/Sunil Chavan (Franchise Owner).jpeg';
 
-// Franchise Gallery
-import franchiseDombivli from './Franchise/Franchise Gallery/Dombivli Franchise.jpg';
-import franchisePowai from './Franchise/Franchise Gallery/Powai Franchise.jpg';
-import franchisePowai2 from './Franchise/Franchise Gallery/Powai Franchise (2).jpg';
-import franchisePune from './Franchise/Franchise Gallery/Pune Franchise.jpg';
-import franchiseVirar from './Franchise/Franchise Gallery/Virar Franchise.jpg';
+// Franchise Gallery (from public/images)
+const franchiseDombivli = '/images/Franchise/Franchise Gallery/Dombivli Franchise.jpg';
+const franchisePowai = '/images/Franchise/Franchise Gallery/Powai Franchise.jpg';
+const franchisePowai2 = '/images/Franchise/Franchise Gallery/Powai Franchise (2).jpg';
+const franchisePune = '/images/Franchise/Franchise Gallery/Pune Franchise.jpg';
+const franchiseVirar = '/images/Franchise/Franchise Gallery/Virar Franchise.jpg';
 
-// Services
-import serviceOutdoorCatering from './Services/Out Door Catering.jpeg';
-import serviceResorts from './Services/Resorts Image.jpg';
-import serviceTiffins from './Services/Tiffins & Meal Boxes ( Services).jpg';
+// Services (from public/images)
+const serviceOutdoorCatering = '/images/Services/Out Door Catering.jpeg';
+const serviceResorts = '/images/Services/Resorts Image.jpg';
+const serviceTiffins = '/images/Services/Tiffins & Meal Boxes ( Services).jpg';
 
 export const galleryImages = {
   ambiance: {
@@ -333,4 +333,3 @@ export const serviceImages = {
   resorts: serviceResorts,
   tiffins: serviceTiffins
 };
-

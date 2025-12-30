@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { serviceImages } from "../../assets/imageImports";
 import servicesBgImg from "../../assets/images/services/services.jpeg";
-import banquetImg from "../../assets/images/gallery/ambiance/Banquets/01 Virar/DSC09255-HDR.jpg";
-import takeawayImg from "../../assets/images/gallery/food/Kaju Masala.jpg";
-import reservationImg from "../../assets/images/gallery/ambiance/Interior/Thane/DSC03261-HDR.jpg";
+const banquetImg = "/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09255-HDR.jpg";
+const takeawayImg = "/images/Gallery/Our Gallery/Food/Main Course/Kaju Masala.jpg";
+const reservationImg = "/images/Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03261-HDR.jpg";
 
 const Services = () => {
   const services = [
