@@ -1,5 +1,5 @@
-// Logo from public folder
-const logo = "/logo.png";
+// Logo from public/images folder (more reliable on Vercel)
+const logo = "/images/logo.png";
 
 export { logo };
 
