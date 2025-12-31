@@ -109,12 +109,11 @@ const signatureSizzlingBrownie = '/images/Gallery/Our Gallery/Food/Signature Dis
 const signatureStrawberryPinaColada = '/images/Gallery/Our Gallery/Food/Signature Dishes/Strawberry Pina Colada.jpeg';
 const signatureVegBiryani = '/images/Gallery/Our Gallery/Food/Signature Dishes/Veg Biryani.jpeg';
 
-// Team (images not available in compressed folder - using placeholder or removing)
-// Note: Team images are not in the compressed assets folder
-const teamNilesh = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08913-HDR Large.jpeg'; // Placeholder
-const teamRahul = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08987-HDR Large.jpeg'; // Placeholder
-const teamTrayambakeshwar = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC09143-HDR Large.jpeg'; // Placeholder
-const teamGajendra = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08913-HDR Large.jpeg'; // Placeholder
+// Team (from public/images/team)
+const teamNilesh = '/images/team/CMD & Founder - Nilesh Suryavanshi.jpg';
+const teamRahul = '/images/team/Senior Purchase Executive - Rahul Kumar.jpg';
+const teamTrayambakeshwar = '/images/team/Trayambakeshwar Shukla - Senior Restaurant Manager.jpg';
+const teamGajendra = '/images/team/Unit Chef-  Gajendra Shah.jpg';
 
 // About Us - Restaurant (images not available in compressed folder - using About Us images as placeholder)
 const restaurantImg1 = '/images/About-us/About Us Image 1(Beside Our History).jpg';
