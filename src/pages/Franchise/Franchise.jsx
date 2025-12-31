@@ -98,7 +98,7 @@ const Franchise = () => {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/images/Franchise Page Image 1.jpg')`,
+              backgroundImage: `url('/images/Franchise/Franchise Gallery/Virar Franchise.jpeg')`,
             }}
           ></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#800000]/80 to-transparent"></div>

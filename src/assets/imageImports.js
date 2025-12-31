@@ -101,30 +101,31 @@ const foodSignatureSizzlingBrownie = '/images/Gallery/Our Gallery/Food/Signature
 const foodSignatureStrawberryPinaColada = '/images/Gallery/Our Gallery/Food/Signature Dishes/Strawberry Pina Colada.jpeg';
 const foodSignatureVegBiryani = '/images/Gallery/Our Gallery/Food/Signature Dishes/Veg Biryani.jpeg';
 
-// Signature Dishes (from public/images)
-const signatureCheeseCornBall = '/images/signature-dishes/Cheese Corn Ball.jpg';
-const signatureKajuMasala = '/images/signature-dishes/Kaju Masala.jpg';
-const signatureMixGrilledFinger = '/images/signature-dishes/Mix Grilled Finger.jpg';
-const signatureSizzlingBrownie = '/images/signature-dishes/Sizzling Brownie.jpg';
-const signatureStrawberryPinaColada = '/images/signature-dishes/Strawberry Pina Colada.jpg';
-const signatureVegBiryani = '/images/signature-dishes/Veg Biryani.jpg';
+// Signature Dishes (from public/images - using Gallery Signature Dishes)
+const signatureCheeseCornBall = '/images/Gallery/Our Gallery/Food/Signature Dishes/Cheese Corn Ball.jpeg';
+const signatureKajuMasala = '/images/Gallery/Our Gallery/Food/Signature Dishes/Kaju Masala.jpeg';
+const signatureMixGrilledFinger = '/images/Gallery/Our Gallery/Food/Signature Dishes/Mix Grilled Finger.jpeg';
+const signatureSizzlingBrownie = '/images/Gallery/Our Gallery/Food/Signature Dishes/Sizzling Brownie.jpeg';
+const signatureStrawberryPinaColada = '/images/Gallery/Our Gallery/Food/Signature Dishes/Strawberry Pina Colada.jpeg';
+const signatureVegBiryani = '/images/Gallery/Our Gallery/Food/Signature Dishes/Veg Biryani.jpeg';
 
-// Team (from public/images)
-const teamNilesh = '/images/team/CMD & Founder - Nilesh Suryavanshi.jpg';
-const teamRahul = '/images/team/Senior Purchase Executive - Rahul Kumar.jpg';
-const teamTrayambakeshwar = '/images/team/Trayambakeshwar Shukla - Senior Restaurant Manager.jpg';
-const teamGajendra = '/images/team/Unit Chef-  Gajendra Shah.jpg';
+// Team (images not available in compressed folder - using placeholder or removing)
+// Note: Team images are not in the compressed assets folder
+const teamNilesh = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08913-HDR Large.jpeg'; // Placeholder
+const teamRahul = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08987-HDR Large.jpeg'; // Placeholder
+const teamTrayambakeshwar = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC09143-HDR Large.jpeg'; // Placeholder
+const teamGajendra = '/images/Gallery/Our Gallery/Ambiance/Interior/Virar/DSC08913-HDR Large.jpeg'; // Placeholder
 
-// About Us - Restaurant (from public/images)
-const restaurantImg1 = '/images/About-us/Our Restaurant Image 1 - About Us.jpg';
-const restaurantImg2 = '/images/About-us/Our Restaurant Image 2- About Us.jpg';
-const restaurantImg3 = '/images/About-us/Our Restaurant Image 3- About Us.jpg';
-const restaurantImg4 = '/images/About-us/Our Restaurant Image 4- About US.jpg';
-const restaurantImg5 = '/images/About-us/Our Restaurant Image 5- About Us.jpg';
-const restaurantImg6 = '/images/About-us/Our-restaurent-img-6.jpeg';
+// About Us - Restaurant (images not available in compressed folder - using About Us images as placeholder)
+const restaurantImg1 = '/images/About-us/About Us Image 1(Beside Our History).jpg';
+const restaurantImg2 = '/images/About-us/About Us Image 2 (Beside Our History).jpeg';
+const restaurantImg3 = '/images/About-us/About Us Image 3 (Beside Our History).jpeg';
+const restaurantImg4 = '/images/About-us/About Us Image 4 (Our Culinary Philosophy) .jpg';
+const restaurantImg5 = '/images/About-us/About Us Image 5 (Experience Our Divine Cuisine).jpg';
+const restaurantImg6 = '/images/About-us/About Us Image 1(Beside Our History).jpg'; // Placeholder
 
-// Home Page
-const homePageImg1 = '/images/Home Page Image 1.jpg';
+// Home Page - using welcome image as main image since Home Page Image 1.jpg doesn't exist
+const homePageImg1 = '/images/Home-page/Besides Welcome to Prasad Food Divine (Home Page).jpg';
 const homePageWelcomeImg = '/images/Home-page/Besides Welcome to Prasad Food Divine (Home Page).jpg';
 
 // About Us - New Images (from public/images)

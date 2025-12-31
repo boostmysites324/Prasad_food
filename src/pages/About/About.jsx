@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Testimonials from "../../components/Testimonials";
-const bannerImg = "/images/about-us-banner.webp";
+const bannerImg = "/images/About-us/About Us Image 3 (Beside Our History).jpeg";
 import { teamMembers, restaurantImages, aboutUsImages } from "../../assets/imageImports";
 
 const About = () => {
@@ -15,7 +15,7 @@ const About = () => {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${bannerImg})`,
+                backgroundImage: `url("${encodeURI(bannerImg)}")`,
               }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-r from-[#800000]/80 to-transparent"></div>
