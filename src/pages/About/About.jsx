@@ -172,21 +172,54 @@ const About = () => {
                   At Prasad Food Divine, we believe food is the Prasad of God — pure, sacred, and to be served with love.
                 </p>
               </div>
-              <div className="flex flex-col md:flex-row gap-8 mb-12">
-                <div className="md:w-1/2 overflow-hidden rounded-lg shadow-md">
+              <div className="flex flex-col md:flex-row gap-8 mb-12 items-center">
+                <div className="md:w-2/5 overflow-hidden rounded-xl shadow-xl relative group">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#800000]/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <img
                     src={aboutUsImages.culinaryPhilosophy}
                     alt="Our Culinary Philosophy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-[400px] md:h-[600px] object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="md:w-1/2 flex flex-col justify-center">
-                  <p className="text-gray-700 mb-6">
-                    We always focus on purity and quality, choosing the best ingredients and cooking with care. Our food is inspired by traditional recipes but also has a touch of new ideas to delight every guest.
-                  </p>
-                  <p className="text-gray-700 mb-6">
-                    For us, food is not just about taste. It is about care, respect, and happiness. Every plate we serve is made with sincerity so that our guests feel truly satisfied and connected.
-                  </p>
+                <div className="md:w-3/5 flex flex-col justify-center space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#FF9933]/20 rounded-full flex items-center justify-center">
+                      <i className="fas fa-seedling text-[#FF9933] text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-serif text-[#800000] mb-2">Purity in Every Ingredient</h3>
+                      <p className="text-gray-700">
+                        We always focus on purity and quality, choosing the best ingredients and cooking with care. Our food is inspired by traditional recipes but also has a touch of new ideas to delight every guest.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#800000]/10 rounded-full flex items-center justify-center">
+                      <i className="fas fa-heart text-[#800000] text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-serif text-[#800000] mb-2">Crafted with Love</h3>
+                      <p className="text-gray-700">
+                        For us, food is not just about taste. It is about care, respect, and happiness. Every plate we serve is made with sincerity so that our guests feel truly satisfied and connected.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#FF9933]/20 rounded-full flex items-center justify-center">
+                      <i className="fas fa-utensils text-[#FF9933] text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-serif text-[#800000] mb-2">Tradition Meets Innovation</h3>
+                      <p className="text-gray-700">
+                        Our chefs blend time-honored techniques with contemporary creativity, ensuring each dish honors our heritage while embracing modern culinary excellence. This balance creates unforgettable flavors that resonate with both traditional and modern palates.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-[#FFFDD0] to-[#FF9933]/10 p-6 rounded-lg border-l-4 border-[#FF9933] mt-4">
+                    <p className="text-gray-700 italic font-medium">
+                      "Every meal is a blessing, every dish a prayer, and every guest a divine presence in our restaurant."
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
