@@ -413,12 +413,18 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              importedGalleryImages.ambiance[0],
-              importedGalleryImages.food.paneerAngara,
-              importedGalleryImages.food.vegBiryani,
-              importedGalleryImages.ambiance[1],
-              importedGalleryImages.food.kajuMasala,
-              importedGalleryImages.food.sizzlingBrownie,
+              // Ambiance - Banquet images
+              importedGalleryImages.ambiance.banquets.virar[0].src,
+              // Food - Paneer
+              importedGalleryImages.food.paneer[0].src,
+              // Food - Main Course (Veg Biryani)
+              importedGalleryImages.food.mainCourse[3].src,
+              // Ambiance - Interior images
+              importedGalleryImages.ambiance.interior.virar[0].src,
+              // Food - Main Course (Kaju Masala)
+              importedGalleryImages.food.mainCourse[1].src,
+              // Food - Deserts (Sizzling Brownie)
+              importedGalleryImages.food.deserts[1].src,
             ].map((image, index) => (
               <div
                 key={index}

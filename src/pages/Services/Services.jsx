@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { serviceImages } from "../../assets/imageImports";
-const servicesBgImg = "/images/Services/services.jpeg";
-const banquetImg = "/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09255-HDR.jpg";
-const takeawayImg = "/images/Gallery/Our Gallery/Food/Main Course/Kaju Masala.jpg";
-const reservationImg = "/images/Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03261-HDR.jpg";
+// Background image - using banquet hall image from Services/Gallery
+const servicesBgImg = "/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09255-HDR Large.jpeg";
+// Banquet Halls image - using banquet image
+const banquetImg = "/images/Gallery/Our Gallery/Ambiance/Banquets/01 Virar/DSC09255-HDR Large.jpeg";
+// Take Away & Pick Up image - using food image from Gallery
+const takeawayImg = "/images/Gallery/Our Gallery/Food/Main Course/Kaju Masala Large.jpeg";
+// Table Reservations image - using interior image from Gallery
+const reservationImg = "/images/Gallery/Our Gallery/Ambiance/Interior/Thane/DSC03261-HDR Large.jpeg";
 
 const Services = () => {
   const services = [
@@ -124,7 +128,7 @@ const Services = () => {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url(${servicesBgImg})`,
+              backgroundImage: `url("${encodeURI(servicesBgImg)}")`,
               filter: "brightness(0.7)",
             }}
           ></div>
