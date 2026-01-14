@@ -115,17 +115,18 @@ const teamRahul = '/images/team/Senior Purchase Executive - Rahul Kumar.jpg';
 const teamTrayambakeshwar = '/images/team/Trayambakeshwar Shukla - Senior Restaurant Manager.jpg';
 const teamGajendra = '/images/team/Unit Chef-  Gajendra Shah.jpg';
 
-// About Us - Restaurant (images not available in compressed folder - using About Us images as placeholder)
-const restaurantImg1 = '/images/About-us/About Us Image 1(Beside Our History).jpg';
-const restaurantImg2 = '/images/About-us/About Us Image 2 (Beside Our History).jpeg';
-const restaurantImg3 = '/images/About-us/About Us Image 3 (Beside Our History).jpeg';
-const restaurantImg4 = '/images/About-us/About Us Image 4 (Our Culinary Philosophy) .jpg';
-const restaurantImg5 = '/images/About-us/About Us Image 5 (Experience Our Divine Cuisine).jpg';
-const restaurantImg6 = '/images/About-us/About Us Image 1(Beside Our History).jpg'; // Placeholder
+// About Us - Restaurant Gallery Images (Below Our Restaurants section)
+const restaurantImg1 = '/images/About-us/Image 1 Below Our Restaurants in About Us Page.jpeg';
+const restaurantImg2 = '/images/About-us/Image 2 Below Our Restaurants in About Us Page.jpeg';
+const restaurantImg3 = '/images/About-us/Image 3 Below Our Restaurants in About Us Page.jpeg';
+const restaurantImg4 = '/images/About-us/Image 4 Below Our Restaurants in About Us Page.jpeg';
+const restaurantImg5 = '/images/About-us/Image 5 Below Our Restaurants in About Us Page.jpeg';
 
-// Home Page - using welcome image as main image since Home Page Image 1.jpg doesn't exist
-const homePageImg1 = '/images/Home-page/Besides Welcome to Prasad Food Divine (Home Page).jpg';
+// Home Page - Topmost Images
+const homePage_TopmostImage = '/images/Home-page/Home Page Topmost Image.jpeg';
 const homePageWelcomeImg = '/images/Home-page/Besides Welcome to Prasad Food Divine (Home Page).jpg';
+const aboutUsPage_TopmostImage = '/images/Home-page/About Us Page Top Most Image.jpeg';
+const franchisePage_TopmostImage = '/images/Home-page/Franchise Page Top Most Image.jpeg';
 
 // About Us - New Images (from public/images)
 const aboutUsImage1 = '/images/About-us/About Us Image 1(Beside Our History).jpg';
@@ -141,7 +142,7 @@ const franchiseOwnerSunil = '/images/Franchise/Sunil Chavan (Franchise Owner).jp
 // Franchise Gallery (from public/images)
 const franchiseDombivli = '/images/Franchise/Franchise Gallery/Dombivli Franchise.jpeg';
 const franchisePowai = '/images/Franchise/Franchise Gallery/Powai Franchise.jpeg';
-const franchisePowai2 = '/images/Franchise/Franchise Gallery/Powai Franchise (2).jpeg';
+const franchisePowai2 = '/images/Franchise/Franchise Gallery 5th Image.jpg';
 const franchisePune = '/images/Franchise/Franchise Gallery/Pune Franchise.jpeg';
 const franchiseVirar = '/images/Franchise/Franchise Gallery/Virar Franchise.jpeg';
 
@@ -300,12 +301,13 @@ export const restaurantImages = [
   restaurantImg2,
   restaurantImg3,
   restaurantImg4,
-  restaurantImg5,
-  restaurantImg6
+  restaurantImg5
 ];
 
-export const homePageImage = homePageImg1;
+export const homePageImage = homePage_TopmostImage;
 export const homePageWelcomeImage = homePageWelcomeImg;
+export const aboutUsPageTopmostImage = aboutUsPage_TopmostImage;
+export const franchisePageTopmostImage = franchisePage_TopmostImage;
 
 export const aboutUsImages = {
   besideHistory1: aboutUsImage1,

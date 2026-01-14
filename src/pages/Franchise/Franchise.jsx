@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { supabase, isSupabaseReady } from "../../lib/supabaseClient";
-import { franchiseOwners, franchiseGallery } from "../../assets/imageImports";
+import { franchiseOwners, franchiseGallery, franchisePageTopmostImage } from "../../assets/imageImports";
 
 const initialFranchiseFormState = {
   fullName: "",
@@ -98,7 +98,7 @@ const Franchise = () => {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/images/Franchise/Franchise Gallery/Virar Franchise.jpeg')`,
+              backgroundImage: `url('${franchisePageTopmostImage}')`,
             }}
           ></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#800000]/80 to-transparent"></div>

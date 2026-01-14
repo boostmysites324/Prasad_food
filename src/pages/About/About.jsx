@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Testimonials from "../../components/Testimonials";
-const bannerImg = "/images/About-us/About Us Image 3 (Beside Our History).jpeg";
-import { teamMembers, restaurantImages, aboutUsImages } from "../../assets/imageImports";
+import { teamMembers, restaurantImages, aboutUsImages, aboutUsPageTopmostImage } from "../../assets/imageImports";
 
 const About = () => {
   return (
@@ -15,7 +14,7 @@ const About = () => {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url("${encodeURI(bannerImg)}")`,
+                backgroundImage: `url("${encodeURI(aboutUsPageTopmostImage)}")`,
               }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-r from-[#800000]/80 to-transparent"></div>
@@ -340,39 +339,39 @@ const About = () => {
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="overflow-hidden rounded-lg shadow-md col-span-1 sm:col-span-2 h-80">
+                <div className="overflow-hidden rounded-lg shadow-md col-span-1 sm:col-span-2 lg:col-span-2 h-80">
                   <img
                     src={restaurantImages[0]}
-                    alt="Main dining area"
-                    className="w-full h-full object-cover"
+                    alt="Prasad Food Divine Restaurant Exterior"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg shadow-md h-80">
                   <img
                     src={restaurantImages[1]}
-                    alt="Private dining room"
-                    className="w-full h-full object-cover"
+                    alt="Prasad Food Divine Restaurant Interior"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg shadow-md h-80">
                   <img
                     src={restaurantImages[2]}
-                    alt="Our kitchen"
-                    className="w-full h-full object-cover"
+                    alt="Prasad Food Divine Dining Area"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="overflow-hidden rounded-lg shadow-md h-80">
                   <img
                     src={restaurantImages[3]}
-                    alt="Outdoor seating"
-                    className="w-full h-full object-cover"
+                    alt="Prasad Food Divine Restaurant Ambiance"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="overflow-hidden rounded-lg shadow-md col-span-1 h-80">
+                <div className="overflow-hidden rounded-lg shadow-md col-span-1 sm:col-span-2 lg:col-span-1 h-80">
                   <img
-                    src={restaurantImages[5]}
-                    alt="Signature thali presentation"
-                    className="w-full h-full object-cover"
+                    src={restaurantImages[4]}
+                    alt="Prasad Food Divine Restaurant Design"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>
