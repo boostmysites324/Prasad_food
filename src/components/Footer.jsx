@@ -32,18 +32,6 @@ const Footer = () => {
               >
                 <i className="fab fa-instagram text-lg"></i>
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FF9933] flex items-center justify-center transition-all duration-300"
-              >
-                <i className="fab fa-twitter text-lg"></i>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#FF9933] flex items-center justify-center transition-all duration-300"
-              >
-                <i className="fab fa-youtube text-lg"></i>
-              </a>
             </div>
           </div>
           <div>
@@ -89,12 +77,12 @@ const Footer = () => {
               <div className="pt-4">
                 <p className="text-sm text-gray-300">
                   <span className="font-medium text-white">Mon - Fri:</span>{" "}
-                  11:00 AM - 10:00 PM
+                  10:00 AM - 07:00 PM
                 </p>
-                <p className="text-sm text-gray-300">
+                {/* <p className="text-sm text-gray-300">
                   <span className="font-medium text-white">Sat - Sun:</span>{" "}
                   10:00 AM - 11:00 PM
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

@@ -323,7 +323,7 @@ const Contact = () => {
                   <i className="fas fa-envelope mr-2"></i>{" "}
                   reservations@prasadfooddivine.com
                 </p>
-                <div className="mt-6">
+                {/* <div className="mt-6">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.2536900776364!2d77.20651841508096!3d28.56270198244407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMzJzQ1LjciTiA3N8KwMTInMjkuNSJF!5e0!3m2!1sen!2sin!4v1624532516001!5m2!1sen!2sin"
                     width="100%"
@@ -333,7 +333,7 @@ const Contact = () => {
                     loading="lazy"
                     title="Restaurant Location"
                   ></iframe>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

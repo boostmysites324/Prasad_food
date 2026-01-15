@@ -267,7 +267,7 @@ const Home = () => {
                       <div className="flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-full">
                         <i className="fas fa-award text-blue-600"></i>
                         <span className="text-sm font-medium text-blue-800">
-                          ISO 22000:2018
+                          ISO 11517013000011
                         </span>
                       </div>
                     </div>

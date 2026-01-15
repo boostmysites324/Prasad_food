@@ -1053,7 +1053,7 @@ const Franchise = () => {
                     For immediate assistance, contact our franchise department:
                   </p>
                   <p className="font-medium mt-2">
-                    franchise@prasadfooddivine.com | +91 98765 43210
+                    franchise@prasadfooddivine.com 
                   </p>
                 </div>
               </div>
