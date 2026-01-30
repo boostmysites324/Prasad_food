@@ -16,22 +16,16 @@ const Testimonials = () => {
           {
             name: "Pranali Sawale",
             role: "Guest",
-            image:
-              "https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20Indian%20woman%20in%20her%20early%2030s%20with%20a%20warm%20smile%20wearing%20elegant%20traditional%20attire%20against%20a%20simple%20neutral%20background%20that%20highlights%20her%20natural%20beauty%20and%20confidence&width=200&height=200&seq=9&orientation=squarish",
             text: "I've dined at Prasad Food Divine four times, and the food is always a perfect 10/10. The ambiance is great, making it a must-visit for vegetarians as it's a pure veg restaurant.",
           },
           {
             name: "Lalit Sutar",
             role: "Guest",
-            image:
-              "https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20Indian%20man%20in%20his%20mid%2040s%20wearing%20a%20business%20suit%20with%20a%20confident%20smile%20against%20a%20simple%20neutral%20background%20that%20conveys%20professionalism%20and%20trustworthiness&width=200&height=200&seq=10&orientation=squarish",
             text: "I had a wonderful experience at Prasad Food Divine! The service was warm, attentive, and quick — the staff made sure we felt comfortable throughout our visit. The food was delicious too.",
           },
           {
             name: "Darshana Chavan",
             role: "Guest",
-            image:
-              "https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20woman%20in%20her%20late%2030s%20with%20a%20sophisticated%20look%20wearing%20modern%20professional%20attire%20against%20a%20simple%20neutral%20background%20that%20highlights%20her%20expertise%20and%20authority&width=200&height=200&seq=11&orientation=squarish",
             text: "Had an amazing experience at Prasad Food Divine! The food was top-notch—every dish was bursting with flavour and served fresh. The ambiance is perfect for both families and friends, creating a comfortable and welcoming environment.",
           },
         ].map((testimonial, index) => (
@@ -40,11 +34,12 @@ const Testimonials = () => {
             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-1 duration-300"
           >
             <div className="flex items-center mb-4">
-              <img
-                src={testimonial.image}
-                alt={testimonial.name}
-                className="w-16 h-16 rounded-full object-cover mr-4"
-              />
+              <div
+                className="w-16 h-16 rounded-full bg-[#800000]/10 flex items-center justify-center mr-4 flex-shrink-0"
+                aria-hidden
+              >
+                <i className="fas fa-user text-[#800000] text-2xl"></i>
+              </div>
               <div>
                 <h3 className="font-serif text-[#800000]">
                   {testimonial.name}

@@ -122,93 +122,97 @@ const Contact = () => {
         {activeTab === "reservation" && (
           <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="md:flex">
-              <div className="md:w-1/2 p-8">
+              <div className="w-full p-8">
               <form onSubmit={handleReservationSubmit} className="space-y-6">
                 {reservationError && (
                   <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
                     {reservationError}
                   </div>
                 )}
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={reservationData.name}
-                    onChange={handleReservationChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FF9933] focus:border-transparent"
-                    placeholder="Enter your full name"
-                    required
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={reservationData.name}
+                      onChange={handleReservationChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FF9933] focus:border-transparent"
+                      placeholder="Enter your full name"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={reservationData.phone}
+                      onChange={handleReservationChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FF9933] focus:border-transparent"
+                      placeholder="Enter your phone number"
+                      required
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={reservationData.phone}
-                    onChange={handleReservationChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FF9933] focus:border-transparent"
-                    placeholder="Enter your phone number"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={reservationData.email}
-                    onChange={handleReservationChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FF9933] focus:border-transparent"
-                    placeholder="Enter your email address"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="outlet"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Preferred Outlet
-                  </label>
-                  <select
-                    id="outlet"
-                    name="outlet"
-                    value={reservationData.outlet}
-                    onChange={handleReservationChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FF9933] focus:border-transparent"
-                    required
-                  >
-                    <option value="">Select an outlet</option>
-                    <option value="01 Virar">01 Virar</option>
-                    <option value="02 Badlapur">02 Badlapur</option>
-                    <option value="03 Kalyan West">03 Kalyan West</option>
-                    <option value="04 Kalyan East">04 Kalyan East</option>
-                    <option value="05 Dombivali">05 Dombivali</option>
-                    <option value="06 Thane">06 Thane</option>
-                    <option value="07 Mulund">07 Mulund</option>
-                    <option value="08 Powai">08 Powai</option>
-                    <option value="09 Vashi">09 Vashi</option>
-                  </select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={reservationData.email}
+                      onChange={handleReservationChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FF9933] focus:border-transparent"
+                      placeholder="Enter your email address"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="outlet"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Preferred Outlet
+                    </label>
+                    <select
+                      id="outlet"
+                      name="outlet"
+                      value={reservationData.outlet}
+                      onChange={handleReservationChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FF9933] focus:border-transparent"
+                      required
+                    >
+                      <option value="">Select an outlet</option>
+                      <option value="01 Virar">01 Virar</option>
+                      <option value="02 Badlapur">02 Badlapur</option>
+                      <option value="03 Kalyan West">03 Kalyan West</option>
+                      <option value="04 Kalyan East">04 Kalyan East</option>
+                      <option value="05 Dombivali">05 Dombivali</option>
+                      <option value="06 Thane">06 Thane</option>
+                      <option value="07 Mulund">07 Mulund</option>
+                      <option value="08 Powai">08 Powai</option>
+                      <option value="09 Vashi">09 Vashi</option>
+                    </select>
+                  </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -310,33 +314,7 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-            <div className="md:w-1/2 bg-gray-200 min-h-[400px] flex items-center justify-center">
-              <div className="text-center p-8">
-                <i className="fas fa-map-marker-alt text-4xl text-[#800000] mb-4"></i>
-                <h3 className="text-xl font-medium mb-2">Our Location</h3>
-                <p className="text-gray-600 mb-4">
-                Shop No. G-20, G-21, G-22 Ground Floor
-                Sarvoday Mall, Kalyan West, Maharashtra 421301
-                </p>
-                <p className="text-gray-600">
-                  
-                  <i className="fas fa-envelope mr-2"></i>{" "}
-                  reservations@prasadfooddivine.com
-                </p>
-                {/* <div className="mt-6">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.2536900776364!2d77.20651841508096!3d28.56270198244407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMzJzQ1LjciTiA3N8KwMTInMjkuNSJF!5e0!3m2!1sen!2sin!4v1624532516001!5m2!1sen!2sin"
-                    width="100%"
-                    height="300"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    title="Restaurant Location"
-                  ></iframe>
-                </div> */}
-              </div>
             </div>
-          </div>
         </div>
         )}
 
