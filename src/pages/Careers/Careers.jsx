@@ -94,66 +94,66 @@ const Careers = () => {
   const jobListings = [
     {
       id: 1,
-      title: "Executive Chef",
-      department: "Kitchen",
-      location: "Downtown",
-      responsibilities: [
-        "Design and implement innovative menu items",
-        "Manage kitchen staff and operations",
-        "Ensure food quality and consistency",
-      ],
-      requirements: [
-        "Minimum 5 years of culinary experience",
-        "Degree in Culinary Arts",
-        "Strong leadership skills",
-      ],
-    },
-    {
-      id: 2,
       title: "Restaurant Manager",
       department: "Management",
-      location: "Westside",
+      location: "Multiple",
       responsibilities: [
-        "Oversee daily restaurant operations",
-        "Manage staff scheduling and training",
-        "Ensure exceptional customer service",
+        "Overseeing daily Restaurant Operation",
+        "Maintaining Quality & Ensuring Customer Satisfaction",
+        "Leadership, Staff Development & Training",
       ],
       requirements: [
         "Minimum 3 years in restaurant management",
         "Strong organizational and leadership skills",
-        "Experience with inventory and budget management",
+        "Strong Communication & Customer Serving ability",
+      ],
+    },
+    {
+      id: 2,
+      title: "Service Staff",
+      department: "Service",
+      location: "Multiple",
+      responsibilities: [
+        "Provide exceptional customer service",
+        "Take orders and serving food efficiently",
+        "Maintain Cleanliness Of Restaurant",
+      ],
+      requirements: [
+        "Preferred Previous Experience in Food Service",
+        "Excellent Communication Skills",
+        "Up Selling & Revenue Generation",
       ],
     },
     {
       id: 3,
-      title: "Service Staff",
-      department: "Service",
-      location: "Downtown",
+      title: "Kitchen Staff",
+      department: "Kitchen",
+      location: "Multiple",
       responsibilities: [
-        "Provide exceptional customer service",
-        "Take orders and serve food efficiently",
-        "Maintain cleanliness of dining area",
+        "Handle guest orders & ensure smooth kitchen operations",
+        "Ensure food quality and consistency",
+        "Cost Control & Inventory Management",
       ],
       requirements: [
-        "Previous experience in food service preferred",
-        "Excellent communication skills",
-        "Ability to work in a fast-paced environment",
+        "Minimum 2 years of experience as a chef",
+        "Knowledge about Cuisines, Recipes & Ingredients",
+        "Excellent Cooking & Dish Presentation Skills",
       ],
     },
     {
       id: 4,
-      title: "Sous Chef",
-      department: "Kitchen",
-      location: "Eastside",
+      title: "Other Staff",
+      department: "Other",
+      location: "Multiple",
       responsibilities: [
-        "Assist Executive Chef in daily operations",
-        "Prepare and cook menu items",
-        "Train and supervise kitchen staff",
+        "Maintaining Cleanliness in Restaurant",
+        "Satisfying Other Customer Needs",
+        "Handling daily restaurant operations",
       ],
       requirements: [
-        "Minimum 3 years of culinary experience",
-        "Culinary degree or equivalent experience",
-        "Strong organizational skills",
+        "No Minimum Experience & Qualification",
+        "Communication in Hindi",
+        "Basic knowledge of service industry",
       ],
     },
   ];
@@ -270,6 +270,12 @@ const Careers = () => {
                     >
                       Management
                     </li>
+                    <li
+                      className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
+                      onClick={(e) => handleDepartmentChange(e, "Other")}
+                    >
+                      Other
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -303,6 +309,12 @@ const Careers = () => {
                       onClick={(e) => handleLocationChange(e, "Eastside")}
                     >
                       Eastside
+                    </li>
+                    <li
+                      className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
+                      onClick={(e) => handleLocationChange(e, "Multiple")}
+                    >
+                      Multiple
                     </li>
                   </ul>
                 </div>

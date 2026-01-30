@@ -695,7 +695,7 @@ const Franchise = () => {
             </div>
             <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="md:flex">
-                <div className="md:w-2/5 bg-[#800000] text-white p-8 flex flex-col justify-between">
+                <div className="md:w-2/5 bg-[#800000] text-white p-4 md:p-8 flex flex-col justify-between">
                   <div>
                     <h3 className="text-2xl font-serif mb-6">
                       Contact Our Franchise Team
@@ -705,9 +705,9 @@ const Franchise = () => {
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
                           <i className="fas fa-envelope text-white"></i>
                         </div>
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <h4 className="font-medium mb-1">Email Us</h4>
-                          <p className="text-white/80">
+                          <p className="text-white/80 break-all text-sm md:text-base">
                             franchise@prasadfooddivine.com
                           </p>
                         </div>
@@ -725,9 +725,9 @@ const Franchise = () => {
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
                           <i className="fas fa-map-marker-alt text-white"></i>
                         </div>
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <h4 className="font-medium mb-1">Head Office</h4>
-                          <p className="text-white/80">
+                          <p className="text-white/80 text-sm md:text-base">
                           Shop No. G-20, G-21, G-22 Ground Floor, Sarvoday Mall, Kalyan West, 421301
                           </p>
                         </div>
@@ -958,7 +958,7 @@ const Franchise = () => {
               </p>
             </div>
             <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="p-8">
+              <div className="p-4 md:p-8">
                 {[
                   {
                     question:
@@ -997,15 +997,15 @@ const Franchise = () => {
                   >
                     <button
                       onClick={() => toggleAccordion(index)}
-                      className="flex justify-between items-center w-full text-left py-3 focus:outline-none cursor-pointer !rounded-button whitespace-nowrap"
+                      className="flex justify-between items-start gap-3 w-full text-left py-3 focus:outline-none cursor-pointer !rounded-button"
                     >
-                      <h3 className="text-lg font-medium text-[#800000]">
+                      <h3 className="text-base md:text-lg font-medium text-[#800000] flex-1 min-w-0 pr-2">
                         {faq.question}
                       </h3>
                       <i
                         className={`fas ${
                           activeAccordion === index ? "fa-minus" : "fa-plus"
-                        } text-[#800000]`}
+                        } text-[#800000] flex-shrink-0 mt-0.5`}
                       ></i>
                     </button>
                     <div
@@ -1025,35 +1025,35 @@ const Franchise = () => {
         </div>
 
         {/* Final CTA */}
-        <div className="py-16 bg-white">
-          <div className="container mx-auto px-6">
+        <div className="py-10 md:py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto bg-gradient-to-r from-[#800000] to-[#a83800] rounded-xl shadow-xl overflow-hidden">
-              <div className="p-12 text-center text-white">
-                <h2 className="text-3xl md:text-4xl font-serif mb-6">
+              <div className="p-6 sm:p-8 md:p-10 lg:p-12 text-center text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif mb-4 md:mb-6 leading-tight">
                   Ready to Start Your Franchise Journey?
                 </h2>
-                <p className="text-xl mb-8 max-w-2xl mx-auto">
+                <p className="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto px-0 sm:px-2">
                   Join the Prasad Food Divine family and build a successful
                   business with our proven model and comprehensive support.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <button className="bg-white text-[#800000] hover:bg-gray-100 px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap">
+                <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-4">
+                  <button className="w-full sm:w-auto bg-white text-[#800000] hover:bg-gray-100 px-6 sm:px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap">
                     <i className="fas fa-download mr-2"></i> Download Info Kit
                   </button>
                   <a
                     href="#inquiry-form"
-                    className="bg-[#FF9933] hover:bg-[#e88a2a] text-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
+                    className="w-full sm:w-auto inline-block text-center bg-[#FF9933] hover:bg-[#e88a2a] text-white px-6 sm:px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
                   >
                     <i className="fas fa-calendar-check mr-2"></i> Book a
                     Consultation
                   </a>
                 </div>
-                <div className="mt-8 text-white/80">
+                <div className="mt-6 md:mt-8 text-white/80 text-sm md:text-base">
                   <p>
                     For immediate assistance, contact our franchise department:
                   </p>
-                  <p className="font-medium mt-2">
-                    franchise@prasadfooddivine.com 
+                  <p className="font-medium mt-2 break-all">
+                    franchise@prasadfooddivine.com
                   </p>
                 </div>
               </div>
