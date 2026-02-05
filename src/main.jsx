@@ -5,9 +5,13 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 
+const getBasename = () => {
+  return window.location.pathname.startsWith("/web") ? "/web" : "/";
+};
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={getBasename()}>
       <ScrollToTop />
       <App />
     </BrowserRouter>
