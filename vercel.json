@@ -1,10 +1,16 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": null,
-  "cleanUrls": true,
   "rewrites": [
+    {
+      "source": "/web",
+      "destination": "/"
+    },
+    {
+      "source": "/web/:path*",
+      "destination": "/:path*"
+    },
     {
       "source": "/((?!.*\\.).*)",
       "destination": "/index.html"
