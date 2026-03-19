@@ -11,5 +11,5 @@ export const navItems = [
   { name: "Gallery", path: "gallery" },
   { name: "Franchise", path: "franchise" },
   { name: "Careers", path: "careers" },
-  { name: "Contact Us", path: "contact" },
+  { name: "Contact Us", path: "https://prasadfooddivine.in", isExternal: true },
 ];

@@ -140,12 +140,14 @@ const Services = () => {
             <p className="text-xl mb-8 max-w-lg">
               Discover our comprehensive range of services, from elegant banquet halls and resorts to catering, tiffins, and convenient dining options.
             </p>
-            <Link
-              to="/contact"
+            <a
+              href="https://prasadfooddivine.in"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#FF9933] hover:bg-[#e88a2a] text-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
             >
               Book Your Service
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -193,12 +195,14 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
-                    <Link
-                      to="/contact"
+                    <a
+                      href="https://prasadfooddivine.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-block bg-[#FF9933] hover:bg-[#e88a2a] text-white px-6 py-2 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
                     >
                       Book Now
-                    </Link>
+                    </a>
                   </div>
                 </div>
               ))}
@@ -315,12 +319,14 @@ const Services = () => {
               Contact us today to discuss your requirements and let us create a memorable vegetarian dining experience for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
+              <a
+                href="https://prasadfooddivine.in"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#FF9933] hover:bg-[#e88a2a] text-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
               >
                 Contact Us Now
-              </Link>
+              </a>
               <Link
                 to="/about"
                 className="bg-transparent hover:bg-white/20 text-white border-2 border-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"

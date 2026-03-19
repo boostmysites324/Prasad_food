@@ -440,12 +440,14 @@ const About = () => {
                       hospitality.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <Link
-                        to="/contact"
+                      <a
+                        href="https://prasadfooddivine.in"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-[#FF9933] hover:bg-[#e88a2a] text-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"
                       >
                         Book a Table
-                      </Link>
+                      </a>
                       <Link
                         to="/"
                         className="bg-transparent hover:bg-white/20 text-white border-2 border-white px-8 py-3 rounded-md font-medium transition-colors cursor-pointer !rounded-button whitespace-nowrap"

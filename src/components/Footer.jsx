@@ -40,15 +40,27 @@ const Footer = () => {
               <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-[#FF9933]"></span>
             </h4>
             <ul className="space-y-3">
-              {navItems.map(({ name, path }) => (
-                <li key={name}>
-                  <Link
-                    to={`/${path}`}
-                    className="text-gray-300 hover:text-[#FF9933] transition-colors flex items-center"
-                  >
-                    <i className="fas fa-chevron-right text-xs mr-2"></i>
-                    {name}
-                  </Link>
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  {item.isExternal ? (
+                    <a
+                      href={item.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-[#FF9933] transition-colors flex items-center"
+                    >
+                      <i className="fas fa-chevron-right text-xs mr-2"></i>
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={`/${item.path}`}
+                      className="text-gray-300 hover:text-[#FF9933] transition-colors flex items-center"
+                    >
+                      <i className="fas fa-chevron-right text-xs mr-2"></i>
+                      {item.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
